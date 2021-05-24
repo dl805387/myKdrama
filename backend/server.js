@@ -13,27 +13,27 @@ var connection = mysql.createPool({
     password: dbConfig.PASSWORD,
     database: dbConfig.DB
 });
-  
+
 module.exports = connection;
 
 
 
-app.post('/addUser', (req, res) => {
-    const name = req.body.name;
+// app.post('/addUser', (req, res) => {
+//     const name = req.body.name;
 
-    connection.query('INSERT INTO users (name) VALUES (?)', [name], (err, result)=> {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log("success");
-        }
-    })
-});
+//     connection.query('INSERT INTO users (name) VALUES (?)', [name], (err, result)=> {
+//         if (err) {
+//             console.log(err);
+//         } else {
+//             console.log("success");
+//         }
+//     })
+// });
 
 // simple route
 app.get("/", (req, res) => {
 
-  res.json({ message: "Welcome to bezkoder application." });
+  res.json({ message: "Welcome to myKdrama" });
 
 });
 
