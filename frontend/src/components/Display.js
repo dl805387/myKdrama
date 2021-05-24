@@ -29,8 +29,8 @@ function Display(props) {
     return (
         <div className="display">
             <button onClick={e => {e.preventDefault(); discover();}}>click to display!</button>
-            <div>
-                {tvShows !== [] && tvShows.map(x => {return <TvShow key={x.id} result={x} /> })}
+            <div className="tvShows">
+                {tvShows !== [] && tvShows.map(x => {return <TvShow key={x.id} result={x} />})}
             </div>
         </div>
     );

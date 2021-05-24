@@ -1,14 +1,8 @@
-.tvShow {
-    float: left;
+.display {
+    background-color: rgb(147, 255, 241);
 }
 
-.tvShow:nth-child(5n + 1) {
-    clear: left;
-}
-
-@media (max-width: 1300px) 
-{
-    .tvShow:nth-child(4n + 4) {
-        clear: left;
-    }
+.tvShows {
+    display: flex;
+    flex-wrap: wrap;
 }
