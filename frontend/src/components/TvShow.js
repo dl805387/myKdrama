@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import '../styles/TvShow.css'
 const axios = require('axios').default;
 
 function TvShow(props) {
@@ -21,7 +22,7 @@ function TvShow(props) {
             
 
             <div className="info">
-                <p className="card-title"> {result.name} </p>
+                <p className="showTitle"> {result.name} </p>
                 <p className="description">description</p>
             </div>
         </div>
