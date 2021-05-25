@@ -1,0 +1,10 @@
+.display {
+    background-color: rgb(147, 255, 241);
+}
+
+.tvShows {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import TvShow from '../components/TvShow';
+import '../styles/Display.css'
 const axios = require('axios').default;
 
 function Display(props) {
