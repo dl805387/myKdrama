@@ -11,11 +11,19 @@ function TvShow(props) {
 
     return (
         <div className="tvShow">
-            {/* A JSX comment */}
+            {/* A JSX comment 
             <p> {result.name} </p>
             <p>{result.first_air_date}</p>
             <p>{result.vote_average}</p>
             <img src={"https://image.tmdb.org/t/p/w200" + result.poster_path} alt={result.name}></img>
+            */}
+            <img className="showPic" src={"https://image.tmdb.org/t/p/w300" + result.poster_path} alt={result.name}></img>
+            
+
+            <div className="info">
+                <p className="card-title"> {result.name} </p>
+                <p className="description">description</p>
+            </div>
         </div>
     );
 }
