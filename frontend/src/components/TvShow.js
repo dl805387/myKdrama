@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom"; 
 import '../styles/TvShow.css'
 const axios = require('axios').default;
 
 function TvShow(props) {
 
+    const history = useHistory();
     const {result} = props;
 
     useEffect(() => {
@@ -35,6 +37,7 @@ function TvShow(props) {
                     <div className="starRatingsTop" style={{width: toPercent()}}><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
                     <div className="starRatingsBottom"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
                 </div>
+                <button onClick={() => {history.push("/Name")}}>redirect</button>
             </div>
 
         </div>

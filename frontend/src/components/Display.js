@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom"; 
 import TvShow from '../components/TvShow';
 import '../styles/Display.css'
 const axios = require('axios').default;
 
 function Display(props) {
+    const history = useHistory();
 
     const apiKey = "2c3c49c8f9892c1b17ebf32c4b74bed0";
     const [genre, setGenre] = useState(18);
@@ -29,6 +31,8 @@ function Display(props) {
 
     return (
         <div className="display">
+            <button onClick={() => {history.push("/Name")}}>redirect</button>
+
             <button onClick={e => {e.preventDefault(); discover();}}>click to display!</button>
             <div className="tvShows">
                 {tvShows !== [] && tvShows.map(x => {return <TvShow key={x.id} result={x} />})}
