@@ -1,0 +1,28 @@
+.detailPage {
+    display: flex;
+}
+
+.backdrop {
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: center;
+    width: 60%;
+    height: 100vh;
+}
+
+.detailBody {
+    width: 40%;
+    background-color: black;
+    color: white;
+}
+
+
+
+
+
+
+/* 
+To make this mobile friendly
+move the pic to the top
+Then make the height shorter
+*/

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import '../styles/Detail.css'
 const axios = require('axios').default;
 
 function Detail(props) {
@@ -15,28 +16,34 @@ function Detail(props) {
 
     return ( 
         <div>
-            <p>{data.name}</p>
-            <p>{data.original_name}</p>
-            <p>year</p>
-            <p>{data.vote_average}</p>
-            {data.genres.map(x => {
-                return <p>{x.name}</p>
-            })}
-            <p>{data.number_of_seasons}</p>
-            <p>{data.number_of_episodes}</p>
-            <p>{data.overview}</p>
-            {data.seasons.map(x => {
-                return (
-                    <div>
-                        <p>{x.name}</p>
-                        <p>{x.episode_count}</p>
+            {data !== {} && (
+                <div className="detailPage">
+                    <div className="detailBody">
+                        <p>{data.name}</p>
+                        <p>{data.original_name}</p>
+                        <p>year</p>
+                        <p>{data.vote_average}</p>
+                        {data.genres && data.genres.map(x => {
+                            return <p>{x.name}</p>
+                        })}
+                        <p>{data.number_of_seasons}</p>
+                        <p>{data.number_of_episodes}</p>
+                        <p>{data.overview}</p>
+                        {data.seasons && data.seasons.map(x => {
+                            return (
+                                <div>
+                                    <p>{x.name}</p>
+                                    <p>{x.episode_count}</p>
+                                </div>
+                            )
+                        })}
                     </div>
-                )
-            })}
-            <img className="showPic" src={"https://image.tmdb.org/t/p/w500" + data.backdrop_path} alt={data.name}></img>
+
+                    <div className="backdrop" style={{backgroundImage: `url(${"https://image.tmdb.org/t/p/original" + data.backdrop_path})`}}></div>
+                </div>
+            )}
         </div>
     );
 }
 
 export default Detail;
-// you can give credit to viki if u want
