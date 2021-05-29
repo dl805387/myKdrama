@@ -13,7 +13,12 @@ function TvShow(props) {
     }
 
     return (
-        <div className="tvShow" onClick={() => {history.push("/Name")}}>
+        <div className="tvShow" 
+            onClick={() => {history.push({
+                pathname: '/detail',
+                id: result.id
+            })}}
+        >
             <img className="showPic" src={"https://image.tmdb.org/t/p/w500" + result.poster_path} alt={result.name}></img>
             
             <div className="info">
