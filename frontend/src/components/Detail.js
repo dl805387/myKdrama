@@ -10,7 +10,20 @@ function Detail(props) {
         return parseFloat((data.vote_average * 10).toFixed(2)) + "%";
     }
 
-    
+    const strGenre = () => {
+        if (!data.genres) {
+            return "";
+        }
+        let str = "Genres: ";
+        for (let i = 0; i < data.genres.length; i++) {
+            if (i < data.genres.length - 1) {
+                str = str + data.genres[i].name + ", ";
+            } else {
+                str = str + data.genres[i].name;
+            }
+        }
+        return str;
+    }
 
     useEffect(() => {
         axios.get("https://api.themoviedb.org/3/tv/" + props.location.id + "?api_key=2c3c49c8f9892c1b17ebf32c4b74bed0&language=en-US")
@@ -19,6 +32,9 @@ function Detail(props) {
             console.log(res.data);
         });
     }, []);
+
+    // to do
+    // design for seasons with backdrop pic
 
     return ( 
         <div>
