@@ -26,11 +26,13 @@ function Detail(props) {
     }
 
     useEffect(() => {
-        axios.get("https://api.themoviedb.org/3/tv/" + props.location.id + "?api_key=2c3c49c8f9892c1b17ebf32c4b74bed0&language=en-US")
-        .then((res) => {
-            setData(res.data);
-            console.log(res.data);
-        });
+        if (props.location.id) {
+            axios.get("https://api.themoviedb.org/3/tv/" + props.location.id + "?api_key=2c3c49c8f9892c1b17ebf32c4b74bed0&language=en-US")
+            .then((res) => {
+                setData(res.data);
+                console.log(res.data);
+            });
+        }
     }, []);
 
     // to do
@@ -60,7 +62,7 @@ function Detail(props) {
                         <div className="seasons">
                             {data.seasons && data.seasons.map(x => {
                                 return (
-                                    <div>
+                                    <div key={x.id}> 
                                         <p>{x.name}</p>
                                         <p>{x.episode_count} episodes</p>
                                     </div>
@@ -68,8 +70,10 @@ function Detail(props) {
                             })}
                         </div>
                     </div>
-
-                    <div className="backdrop" style={{backgroundImage: `url(${"https://image.tmdb.org/t/p/original" + data.backdrop_path})`}}></div>
+                    
+                    {data.backdrop_path && (
+                        <div className="backdrop" style={{backgroundImage: `url(${"https://image.tmdb.org/t/p/original" + data.backdrop_path})`}}></div>
+                    )}
                 </div>
             )}
         </div>
