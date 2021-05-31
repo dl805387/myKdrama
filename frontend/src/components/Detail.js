@@ -43,7 +43,7 @@ function Detail(props) {
                 console.log(res.data.results);
             });
         }
-    }, []);
+    }, [props.location]);
 
     return ( 
         <div>

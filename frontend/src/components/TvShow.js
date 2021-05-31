@@ -11,11 +11,11 @@ function TvShow(props) {
     const toPercent = () => {
         return parseFloat((result.vote_average * 10).toFixed(2)) + "%";
     }
-//pathname: '/detail',
+
     return (
         <div className="tvShow" 
             onClick={() => {history.push({
-                pathname: '/detail/' + result.id,
+                pathname: '/detail/' + result.name.replace(/\s/g, ''),
                 id: result.id
             })}}
         >
