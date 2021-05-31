@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import '../styles/Detail.css'
 import "./Icons.js";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import TvShow from '../components/TvShow';
 const axios = require('axios').default;
 
 function Detail(props) {
 
     const [data, setData] = useState({});
+    const [recs, setRecs] = useState([]);
 
     const toPercent = () => {
         return parseFloat((data.vote_average * 10).toFixed(2)) + "%";
@@ -34,23 +36,23 @@ function Detail(props) {
                 setData(res.data);
                 console.log(res.data);
             });
+
+            axios.get("https://api.themoviedb.org/3/tv/" + props.location.id + "/recommendations?api_key=2c3c49c8f9892c1b17ebf32c4b74bed0&language=en-US&page=1")
+            .then((res) => {
+                setRecs(res.data.results);
+                console.log(res.data.results);
+            });
         }
     }, []);
 
-    // to do
-    // design for seasons with poster pic
-    // get recommendations
-    // the recommendation section should go below the detail page
-    // make the color dark gray (lighter than black)
-    // add poster picture (test responsiveness)
-
     return ( 
         <div>
-            {data !== {} && (
-                <div className="detailPage">
+        {data !== {} && (
+            <div className="detailPage">
+                <div className="detailUpper">
                     <div className="detailBody">
                         <p className="detailTitle">{data.name}</p>
-                        <img className="poster" src={"https://image.tmdb.org/t/p/w200" + data.poster_path} alt={data.name}></img>
+                        {data.poster_path && (<img className="poster" src={"https://image.tmdb.org/t/p/w200" + data.poster_path} alt={data.name}></img>)}
                         <p className="bodyText">{data.original_name}</p>
                         <p className="bodyText">{data.first_air_date}</p>
 
@@ -77,7 +79,19 @@ function Detail(props) {
                         <div className="backdrop" style={{backgroundImage: `url(${"https://image.tmdb.org/t/p/original" + data.backdrop_path})`}}></div>
                     )}
                 </div>
-            )}
+
+                <div className="detailLower">
+                    <div className="iconWithTitle">
+                        <FontAwesomeIcon icon="angle-double-right" size="2x" className="angleRight orange"/>
+                        <p className="subTitle">Recommendations</p>
+                    </div>
+
+                    <div className="tvShows">
+                        {recs !== [] && recs.map(x => {return <TvShow key={x.id} result={x} />})}
+                    </div>
+                </div>
+            </div>
+        )}
         </div>
     );
 }

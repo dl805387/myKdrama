@@ -1,4 +1,4 @@
-.detailPage {
+.detailUpper {
     display: flex;
     min-height: 600px;
 }
@@ -21,7 +21,7 @@
 
 @media (max-width: 1100px) 
 {
-    .detailPage {
+    .detailUpper {
         flex-direction: column-reverse;
         height: 100%;
     }
@@ -64,7 +64,7 @@
 }
 
 .bodyText {
-    margin: 3px;
+    margin: 2px;
     margin-left: 0px;
 }
 
@@ -73,7 +73,7 @@
 }
 
 .vote {
-    margin-top: 0;
+    margin-top: 5px;
 }
 
 .iconWithTitle {
@@ -86,6 +86,7 @@
     margin-top: 4px;
     font-size: 20px;
     font-weight: bold;
+    color: white;
 }
 
 .synopsis {
@@ -101,10 +102,24 @@
     color: rgb(156, 149, 255);
     height: 30px;
     margin: 0;
-    padding-right: 3px;
+    margin-right: 3px;
 }
 
-/*
-add min height 
-maybe vh based
-*/
+.detailPage {
+    display: flex;
+    flex-direction: column;
+}
+
+.detailLower {
+    background-color: rgb(68, 67, 66);
+    padding: 20px;
+    padding-top: 0px;
+}
+
+.orange {
+    color: rgb(255, 172, 124)
+}
+
+.test {
+    width: 50px;
+}
