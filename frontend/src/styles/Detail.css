@@ -76,19 +76,32 @@
     margin-top: 0;
 }
 
-.aboutTitle {
-    margin: 0;
+.iconWithTitle {
+    display: flex;
     margin-top: 20px;
-    font-size: 20px;
 }
 
-.about {
+.subTitle {
+    margin: 0;
+    margin-top: 4px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.synopsis {
     margin: 0;
 }
 
 .poster {
     width: 125px;
     border-radius: 10px;
+}
+
+.angleRight {
+    color: rgb(156, 149, 255);
+    height: 30px;
+    margin: 0;
+    padding-right: 3px;
 }
 
 /*

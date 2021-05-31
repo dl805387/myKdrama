@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import '../styles/Detail.css'
+import "./Icons.js";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const axios = require('axios').default;
 
 function Detail(props) {
@@ -63,8 +65,12 @@ function Detail(props) {
                         <p className="bodyText">{strGenre()}</p>
                         <p className="bodyText">Seasons: {data.number_of_seasons}</p>
                         <p className="bodyText">Episodes: {data.number_of_episodes}</p>
-                        <p className="aboutTitle">!colored right triangle Synopsis</p>
-                        <p className="about">{data.overview}</p>
+
+                        <div className="iconWithTitle">
+                            <FontAwesomeIcon icon="angle-double-right" size="2x" className="angleRight"/>
+                            <p className="subTitle">Synopsis</p>
+                        </div>
+                        <p className="synopsis">{data.overview}</p>
                     </div>
                     
                     {data.backdrop_path && (
