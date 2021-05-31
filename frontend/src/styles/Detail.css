@@ -1,5 +1,6 @@
 .detailPage {
     display: flex;
+    min-height: 600px;
 }
 
 .backdrop {
@@ -75,15 +76,22 @@
     margin-top: 0;
 }
 
+.aboutTitle {
+    margin: 0;
+    margin-top: 20px;
+    font-size: 20px;
+}
+
 .about {
     margin: 0;
 }
 
-.seasons {
-    display: flex;
+.poster {
+    width: 125px;
+    border-radius: 10px;
 }
 
-
 /*
-add min height
+add min height 
+maybe vh based
 */

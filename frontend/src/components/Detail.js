@@ -36,7 +36,11 @@ function Detail(props) {
     }, []);
 
     // to do
-    // design for seasons with backdrop pic
+    // design for seasons with poster pic
+    // get recommendations
+    // the recommendation section should go below the detail page
+    // make the color dark gray (lighter than black)
+    // add poster picture (test responsiveness)
 
     return ( 
         <div>
@@ -44,6 +48,7 @@ function Detail(props) {
                 <div className="detailPage">
                     <div className="detailBody">
                         <p className="detailTitle">{data.name}</p>
+                        <img className="poster" src={"https://image.tmdb.org/t/p/w200" + data.poster_path} alt={data.name}></img>
                         <p className="bodyText">{data.original_name}</p>
                         <p className="bodyText">{data.first_air_date}</p>
 
@@ -55,20 +60,11 @@ function Detail(props) {
                             </div>
                         </div>
 
-                        <p>{strGenre()}</p>
-                        <p className="about">!colored right triangle Synopsis</p>
+                        <p className="bodyText">{strGenre()}</p>
+                        <p className="bodyText">Seasons: {data.number_of_seasons}</p>
+                        <p className="bodyText">Episodes: {data.number_of_episodes}</p>
+                        <p className="aboutTitle">!colored right triangle Synopsis</p>
                         <p className="about">{data.overview}</p>
-
-                        <div className="seasons">
-                            {data.seasons && data.seasons.map(x => {
-                                return (
-                                    <div key={x.id}> 
-                                        <p>{x.name}</p>
-                                        <p>{x.episode_count} episodes</p>
-                                    </div>
-                                )
-                            })}
-                        </div>
                     </div>
                     
                     {data.backdrop_path && (
