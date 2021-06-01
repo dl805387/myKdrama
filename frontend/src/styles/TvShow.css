@@ -40,13 +40,23 @@
 .infoFooter {
     color:white;
     padding-left: 10px;
-    cursor: alias;
     font-size: 13px;
 }
 
+.noFooter {
+    display: none;
+}
+
 .showPic {
-    width: 250px;
-    height: 380px;
+    max-width: 250px;
+    max-height: 400px;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.recoPic {
+    max-width: 200px;
+    max-height: 350px;
     border-radius: 25px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -57,6 +67,9 @@ maybe not
 
 https://codepen.io/Bluetidepro/pen/GkpEa
 give credit for the star rating
+
+200
+350
 */
 
 

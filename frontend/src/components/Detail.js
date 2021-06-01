@@ -87,7 +87,7 @@ function Detail(props) {
                     </div>
 
                     <div className="tvShows">
-                        {recs !== [] && recs.map(x => {return <TvShow key={x.id} result={x} />})}
+                        {recs !== [] && recs.map(x => {return <TvShow key={x.id} result={x} reco={true} />})}
                     </div>
                 </div>
             </div>
