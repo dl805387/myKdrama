@@ -19,14 +19,14 @@
 }
 
 .tvShow:hover .info {
-    height: 50%;
+    height: 60%;
 }
 
 .showTitle {
     font-weight: bold;
     font-size: 20px;
     color:white;
-    padding: 10px;
+    padding: 15px;
     padding-top: 0px;
     margin-top: 3px;
 }
@@ -49,14 +49,14 @@
 
 .showPic {
     width: 250px;
-    height: 370px;
+    height: 375px;
     border-radius: 25px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .recoPic {
-    width: 200px;
-    height: 280px;
+    width: 180px;
+    height: 270px;
     border-radius: 25px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -68,8 +68,6 @@ maybe not
 https://codepen.io/Bluetidepro/pen/GkpEa
 give credit for the star rating
 
-200
-350
 */
 
 
@@ -101,4 +99,74 @@ give credit for the star rating
     padding: 0;
     display: block;
     z-index: 0;
+}
+
+@media (max-width: 550px)
+{
+
+    .showPic {
+        width: 180px;
+        height: 270px;
+    }
+
+}
+
+@media (max-width: 379px) 
+{
+
+    .showPic {
+        width: 165px;
+        height: 247px;
+    }
+
+    .showTitle {
+        font-size: 18px;
+        margin-top: 5px;
+    }
+
+}
+
+@media (max-width: 349px)
+{
+
+    .showPic {
+        width: 150px;
+        height: 225px;
+    }
+
+    .showTitle {
+        font-size: 18px;
+        margin-top: 5px;
+    }
+    
+}
+
+@media (max-width: 319px)
+{
+
+    .showPic {
+        width: 250px;
+        height: 375px;
+    }
+
+    .showTitle {
+        font-size: 20px;
+        margin-top: 3px;
+    }
+    
+}
+
+@media (max-width: 260px)
+{
+
+    .showPic {
+        width: 180px;
+        height: 270px;
+    }
+
+    .showTitle {
+        font-size: 18px;
+        margin-top: 5px;
+    }
+
 }

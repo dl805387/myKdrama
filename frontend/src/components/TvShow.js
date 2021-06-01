@@ -21,6 +21,7 @@ function TvShow(props) {
         }
     }
 
+    // If the tv show is a recommendation, then it will not have "click for more detail!"
     const isRecoFooter = () => {
         if (reco) {
             return "noFooter";
