@@ -48,15 +48,15 @@
 }
 
 .showPic {
-    max-width: 250px;
-    max-height: 400px;
+    width: 250px;
+    height: 370px;
     border-radius: 25px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .recoPic {
-    max-width: 200px;
-    max-height: 350px;
+    width: 200px;
+    height: 280px;
     border-radius: 25px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

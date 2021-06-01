@@ -44,6 +44,8 @@ function Home(props) {
 
     // may want to make pic smaller for mobile
 
+    // on mobile, also put buttons on top
+
     return (
         <div className="display">
             <div className="tvShows">
