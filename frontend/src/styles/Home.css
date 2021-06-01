@@ -4,3 +4,25 @@
     align-items: center;
     justify-content: center;
 }
+
+.pagesSection {
+    float: right;
+    margin-right: 5%;
+}
+
+.pageBtn {
+    width: 30px;
+    font-size: 22px;
+    font-weight: bold;
+    margin-left: 3px;
+    cursor: pointer;
+    background-color: rgb(236, 232, 232);
+    border-radius: 3px;
+    border-color: black;
+    border-width: 1px;
+    text-align: center;
+}
+
+.currPage {
+    background-color: rgb(140, 220, 240);
+}

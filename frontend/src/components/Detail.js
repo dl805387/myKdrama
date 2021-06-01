@@ -44,10 +44,9 @@ function Detail(props) {
             .then((res) => {
                 // Filter the recommendations to only have korean shows
                 const onlyKo = res.data.results.filter(x=>{
-                    return x.original_language === "ko";
-                })
+                    return x.original_language === "ko" && x.poster_path !== null;
+                });
                 setRecs(onlyKo);
-
                 // Lets the user know if there are no recommendations
                 if (onlyKo.length === 0) {
                     setNoRecs(true);

@@ -7,31 +7,59 @@ function Home(props) {
 
     const apiKey = "2c3c49c8f9892c1b17ebf32c4b74bed0";
     const [genre, setGenre] = useState(18);
-    const [page, setPage] = useState(1);
+    const [currPage, setCurrPage] = useState(1);
     const [tvShows, setTvShows] = useState([]);
 
-    //https://api.themoviedb.org/3/discover/tv?api_key=2c3c49c8f9892c1b17ebf32c4b74bed0&language=en-US&sort_by=popularity.desc&page=1&with_genres=18&include_null_first_air_dates=false&with_original_language=ko&with_watch_monetization_types=flatrate
-
-
-    const discover = () => {
-        axios.get("https://api.themoviedb.org/3/discover/tv?api_key=" + apiKey + "&language=en-US&sort_by=popularity.desc&page=" + page + 
+    // Fetch API to get popular K dramas with page number
+    const discover = (pageNum) => {
+        axios.get("https://api.themoviedb.org/3/discover/tv?api_key=" + apiKey + "&language=en-US&sort_by=popularity.desc&page=" + pageNum + 
         "&with_genres=" + genre + "&include_null_first_air_dates=false&with_original_language=ko&with_watch_monetization_types=flatrate")
         .then((res) => {
-            console.log(res.data);
-            setTvShows(res.data.results);
+            // Filter by korean language and must have poster picture
+            const onlyKo = res.data.results.filter(x=>{
+                return x.original_language === "ko" && x.poster_path !== null;
+            });
+            setTvShows(onlyKo);
+            setCurrPage(pageNum);
         });
     }
 
+    // Used to change the color of the page button if its the current page
+    const isCurrPage = (pageNum) => {
+        if (pageNum === currPage) {
+            return "pageBtn currPage";
+        } else {
+            return "pageBtn";
+        }
+    }
+
     useEffect(() => {
-        //discover();
+        discover(1);
     }, []);
 
+    // to do
+    // make page btn mobile friendly // may not need to do this
+    // maybe only do this on super small phone screen
+    // sometimes clicking on button makes page go up, sometimes doesnt
+
+    // may want to make pic smaller for mobile
 
     return (
         <div className="display">
-            <button onClick={e => {e.preventDefault(); discover();}}>click to display!</button>
             <div className="tvShows">
                 {tvShows !== [] && tvShows.map(x => {return <TvShow key={x.id} result={x} />})}
+            </div>
+
+            <div className="pagesSection">
+                <button className={isCurrPage(1)} onClick={e => {e.preventDefault(); discover(1);}}>1</button>
+                <button className={isCurrPage(2)} onClick={e => {e.preventDefault(); discover(2);}}>2</button>
+                <button className={isCurrPage(3)} onClick={e => {e.preventDefault(); discover(3);}}>3</button>
+                <button className={isCurrPage(4)} onClick={e => {e.preventDefault(); discover(4);}}>4</button>
+                <button className={isCurrPage(5)} onClick={e => {e.preventDefault(); discover(5);}}>5</button>
+                <button className={isCurrPage(6)} onClick={e => {e.preventDefault(); discover(6);}}>6</button>
+                <button className={isCurrPage(7)} onClick={e => {e.preventDefault(); discover(7);}}>7</button>
+                <button className={isCurrPage(8)} onClick={e => {e.preventDefault(); discover(8);}}>8</button>
+                <button className={isCurrPage(9)} onClick={e => {e.preventDefault(); discover(9);}}>9</button>
             </div>
         </div>
     );
