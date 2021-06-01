@@ -119,3 +119,12 @@
 .orange {
     color: rgb(255, 172, 124)
 }
+
+.recommendations {
+    display: flex;  
+}
+
+.scroll {
+    overflow: auto; 
+}
+

@@ -9,6 +9,7 @@ function Detail(props) {
 
     const [data, setData] = useState({});
     const [recs, setRecs] = useState([]);
+    const [noRecs, setNoRecs] = useState(false);
 
     const toPercent = () => {
         return parseFloat((data.vote_average * 10).toFixed(2)) + "%";
@@ -39,8 +40,14 @@ function Detail(props) {
 
             axios.get("https://api.themoviedb.org/3/tv/" + props.location.id + "/recommendations?api_key=2c3c49c8f9892c1b17ebf32c4b74bed0&language=en-US&page=1")
             .then((res) => {
-                setRecs(res.data.results);
-                console.log(res.data.results);
+                // Filter the recommendations to only have korean shows
+                const onlyKo = res.data.results.filter(x=>{
+                    return x.original_language === "ko";
+                })
+                setRecs(onlyKo);
+                if (onlyKo.length === 0) {
+                    setNoRecs(true);
+                }
             });
         }
     }, [props.location]);
@@ -86,8 +93,16 @@ function Detail(props) {
                         <p className="subTitle">Recommendations</p>
                     </div>
 
-                    <div className="tvShows">
-                        {recs !== [] && recs.map(x => {return <TvShow key={x.id} result={x} reco={true} />})}
+                    <div className="scroll">
+                        <div className="recommendations">
+                            {recs !== [] && recs.map(x => {return <TvShow key={x.id} result={x} reco={true} />})}
+                        </div>
+
+                        {noRecs && (
+                            <div>
+                                <p>no recommendations, then add smiley face</p>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
