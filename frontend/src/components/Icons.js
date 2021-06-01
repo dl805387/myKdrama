@@ -1,5 +1,5 @@
 import {library} from '@fortawesome/fontawesome-svg-core';
-import {faAngleDoubleRight} from '@fortawesome/free-solid-svg-icons';
+import {faAngleDoubleRight, faSadTear} from '@fortawesome/free-solid-svg-icons';
 
 
-library.add(faAngleDoubleRight);
+library.add(faAngleDoubleRight, faSadTear);

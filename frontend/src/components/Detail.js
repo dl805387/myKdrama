@@ -32,12 +32,14 @@ function Detail(props) {
 
     useEffect(() => {
         if (props.location.id) {
+            // Fetch API to get details of the drama
             axios.get("https://api.themoviedb.org/3/tv/" + props.location.id + "?api_key=2c3c49c8f9892c1b17ebf32c4b74bed0&language=en-US")
             .then((res) => {
                 setData(res.data);
                 console.log(res.data);
             });
 
+            // Fetch API to get recommendations
             axios.get("https://api.themoviedb.org/3/tv/" + props.location.id + "/recommendations?api_key=2c3c49c8f9892c1b17ebf32c4b74bed0&language=en-US&page=1")
             .then((res) => {
                 // Filter the recommendations to only have korean shows
@@ -45,6 +47,8 @@ function Detail(props) {
                     return x.original_language === "ko";
                 })
                 setRecs(onlyKo);
+
+                // Lets the user know if there are no recommendations
                 if (onlyKo.length === 0) {
                     setNoRecs(true);
                 }
@@ -75,7 +79,7 @@ function Detail(props) {
                         <p className="bodyText">Seasons: {data.number_of_seasons}</p>
                         <p className="bodyText">Episodes: {data.number_of_episodes}</p>
 
-                        <div className="iconWithTitle">
+                        <div className="iconWithText">
                             <FontAwesomeIcon icon="angle-double-right" size="2x" className="angleRight"/>
                             <p className="subTitle">Synopsis</p>
                         </div>
@@ -88,7 +92,7 @@ function Detail(props) {
                 </div>
 
                 <div className="detailLower">
-                    <div className="iconWithTitle">
+                    <div className="iconWithText">
                         <FontAwesomeIcon icon="angle-double-right" size="2x" className="angleRight orange"/>
                         <p className="subTitle">Recommendations</p>
                     </div>
@@ -99,8 +103,9 @@ function Detail(props) {
                         </div>
 
                         {noRecs && (
-                            <div>
-                                <p>no recommendations, then add smiley face</p>
+                            <div className="iconWithText">
+                                <p className="message">No Recommendations</p>
+                                <FontAwesomeIcon icon="sad-tear" size="2x" className="orange"/>
                             </div>
                         )}
                     </div>

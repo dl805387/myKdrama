@@ -59,7 +59,7 @@
 .detailTitle {
     font-size: 32px;
     font-weight: bold;
-    margin: 0;
+    margin: 0px;
     margin-bottom: 20px;
 }
 
@@ -76,21 +76,21 @@
     margin-top: 5px;
 }
 
-.iconWithTitle {
+.iconWithText {
     display: flex;
     margin-top: 20px;
 }
 
 .subTitle {
-    margin: 0;
-    margin-top: 4px;
+    margin: 0px;
+    margin-top: 5px;
     font-size: 20px;
     font-weight: bold;
     color: white;
 }
 
 .synopsis {
-    margin: 0;
+    margin: 0px;
 }
 
 .poster {
@@ -101,7 +101,7 @@
 .angleRight {
     color: rgb(156, 149, 255);
     height: 30px;
-    margin: 0;
+    margin: 0px;
     margin-right: 3px;
 }
 
@@ -117,7 +117,7 @@
 }
 
 .orange {
-    color: rgb(255, 172, 124)
+    color: rgb(255, 172, 124) !important;
 }
 
 .recommendations {
@@ -126,5 +126,13 @@
 
 .scroll {
     overflow: auto; 
+}
+
+.message {
+    margin: 0px;
+    margin-top: 5px;
+    margin-right: 10px;
+    font-size: 18px;
+    color: white;
 }
 
