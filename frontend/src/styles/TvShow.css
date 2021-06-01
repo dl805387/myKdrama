@@ -109,6 +109,10 @@ give credit for the star rating
         height: 270px;
     }
 
+    .info {
+        display:none;
+    }
+
 }
 
 @media (max-width: 379px) 
@@ -117,11 +121,6 @@ give credit for the star rating
     .showPic {
         width: 165px;
         height: 247px;
-    }
-
-    .showTitle {
-        font-size: 18px;
-        margin-top: 5px;
     }
 
 }
@@ -133,12 +132,7 @@ give credit for the star rating
         width: 150px;
         height: 225px;
     }
-
-    .showTitle {
-        font-size: 18px;
-        margin-top: 5px;
-    }
-    
+ 
 }
 
 @media (max-width: 319px)
@@ -149,24 +143,14 @@ give credit for the star rating
         height: 375px;
     }
 
-    .showTitle {
-        font-size: 20px;
-        margin-top: 3px;
-    }
-    
 }
 
-@media (max-width: 260px)
+@media (max-width: 259px)
 {
 
     .showPic {
         width: 180px;
         height: 270px;
-    }
-
-    .showTitle {
-        font-size: 18px;
-        margin-top: 5px;
     }
 
 }
