@@ -5,44 +5,45 @@ const axios = require('axios').default;
 function Search(props) {
 
     const apiKey = "2c3c49c8f9892c1b17ebf32c4b74bed0";
-    const [tvShows, setTvShows] = useState([]);
+    const [allShows, setAllShows] = useState([]);
+    const [text, setText] = useState("");
+    const [filteredShows, setFilteredShows] = useState([]);
 
     useEffect(() => {
-        let totalPages;
+        // API request to get the total pages
         axios.get("https://api.themoviedb.org/3/discover/tv?api_key=" + apiKey + "&language=en-US&sort_by=popularity.desc&page=" + 1 + 
         "&with_genres=18&include_null_first_air_dates=false&with_original_language=ko&with_watch_monetization_types=flatrate")
         .then((res) => {
-            totalPages = res.data.total_pages;
             let array = [];
-            array.push(res.data.results);
-            for (let i = 2; i <= totalPages; i++) {
+            // Store each show from every page
+            for (let i = 1; i <= res.data.total_pages; i++) {
                 axios.get("https://api.themoviedb.org/3/discover/tv?api_key=" + apiKey + "&language=en-US&sort_by=popularity.desc&page=" + i + 
                 "&with_genres=18&include_null_first_air_dates=false&with_original_language=ko&with_watch_monetization_types=flatrate")
                 .then((res) => {
-                    array.push(res.data.results);
+                    res.data.results.map(x=>{
+                        array.push(x);
+                    });
                 });
             }
-            console.log(array);
-            setTvShows(array);
+            setAllShows(array);
         });
     }, []);
 
-    const test = () => {
-        
-        let array = [];
-        for (let i = 1; i <= 61; i++) {
-            axios.get("https://api.themoviedb.org/3/discover/tv?api_key=" + apiKey + "&language=en-US&sort_by=popularity.desc&page=" + i + 
-            "&with_genres=18&include_null_first_air_dates=false&with_original_language=ko&with_watch_monetization_types=flatrate")
-            .then((res) => {
-                array.push(res.data.results);
-            });
-        }
-        console.log(array);
+    // Search show by filterering while ignoring capital letters or spaces
+    const search = () => {
+        setFilteredShows(allShows.filter(x=>{
+            return (x.name.toLowerCase().replace(/\s/g, '').includes(text.toLowerCase().replace(/\s/g, '')) && x.poster_path !== null) ||
+            (x.original_name.toLowerCase().replace(/\s/g, '').includes(text.toLowerCase().replace(/\s/g, '')) && x.poster_path !== null);
+        }).slice(0, 20));
     }
 
     return (
         <div>
-            <button onClick={e => {e.preventDefault(); console.log(tvShows);}}>click me</button>
+            <input value={text} onChange={e => {setText(e.target.value); search();}}></input>
+
+            <div className="tvShows">
+                {filteredShows !== [] && filteredShows.map(x => {return <TvShow key={x.id} result={x} />})}
+            </div>
         </div>
     );
 }
