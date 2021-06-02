@@ -6,7 +6,7 @@
 }
 
 .pagesSection {
-    float: right;
+    text-align: right;
     margin-right: 5%;
 }
 
@@ -25,4 +25,35 @@
 
 .currPage {
     background-color: rgb(140, 220, 240);
+}
+
+@media (max-width: 319px)
+{
+
+    .btnLast {
+        display: none;
+    }
+
+}
+
+@media (max-width: 279px)
+{
+
+    .btnLast {
+        display: none;
+    }
+
+    .btnEnd {
+        display: none;
+    }
+
+}
+
+@media (min-width: 551px)
+{
+
+    .forMobile {
+        display: none;
+    }
+
 }

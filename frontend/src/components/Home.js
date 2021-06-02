@@ -47,7 +47,19 @@ function Home(props) {
     // on mobile, also put buttons on top
 
     return (
-        <div className="display">
+        <div>
+            <div className="pagesSection forMobile">
+                <button className={isCurrPage(1)} onClick={e => {e.preventDefault(); discover(1);}}>1</button>
+                <button className={isCurrPage(2)} onClick={e => {e.preventDefault(); discover(2);}}>2</button>
+                <button className={isCurrPage(3)} onClick={e => {e.preventDefault(); discover(3);}}>3</button>
+                <button className={isCurrPage(4)} onClick={e => {e.preventDefault(); discover(4);}}>4</button>
+                <button className={isCurrPage(5)} onClick={e => {e.preventDefault(); discover(5);}}>5</button>
+                <button className={isCurrPage(6) + " btnEnd"} onClick={e => {e.preventDefault(); discover(6);}}>6</button>
+                <button className={isCurrPage(7) + " btnEnd"} onClick={e => {e.preventDefault(); discover(7);}}>7</button>
+                <button className={isCurrPage(8) + " btnEnd"} onClick={e => {e.preventDefault(); discover(8);}}>8</button>
+                <button className={isCurrPage(9) + " btnLast"} onClick={e => {e.preventDefault(); discover(9);}}>9</button>
+            </div>
+
             <div className="tvShows">
                 {tvShows !== [] && tvShows.map(x => {return <TvShow key={x.id} result={x} />})}
             </div>
@@ -58,10 +70,10 @@ function Home(props) {
                 <button className={isCurrPage(3)} onClick={e => {e.preventDefault(); discover(3);}}>3</button>
                 <button className={isCurrPage(4)} onClick={e => {e.preventDefault(); discover(4);}}>4</button>
                 <button className={isCurrPage(5)} onClick={e => {e.preventDefault(); discover(5);}}>5</button>
-                <button className={isCurrPage(6)} onClick={e => {e.preventDefault(); discover(6);}}>6</button>
-                <button className={isCurrPage(7)} onClick={e => {e.preventDefault(); discover(7);}}>7</button>
-                <button className={isCurrPage(8)} onClick={e => {e.preventDefault(); discover(8);}}>8</button>
-                <button className={isCurrPage(9)} onClick={e => {e.preventDefault(); discover(9);}}>9</button>
+                <button className={isCurrPage(6) + " btnEnd"} onClick={e => {e.preventDefault(); discover(6);}}>6</button>
+                <button className={isCurrPage(7) + " btnEnd"} onClick={e => {e.preventDefault(); discover(7);}}>7</button>
+                <button className={isCurrPage(8) + " btnEnd"} onClick={e => {e.preventDefault(); discover(8);}}>8</button>
+                <button className={isCurrPage(9) + " btnLast"} onClick={e => {e.preventDefault(); discover(9);}}>9</button>
             </div>
         </div>
     );
