@@ -6,7 +6,6 @@ function Search(props) {
 
     const apiKey = "2c3c49c8f9892c1b17ebf32c4b74bed0";
     const [allShows, setAllShows] = useState([]);
-    const [text, setText] = useState("");
     const [filteredShows, setFilteredShows] = useState([]);
 
     const getAllDramas = () => {
@@ -37,16 +36,16 @@ function Search(props) {
     }, []);
 
     // Search show by filterering while ignoring capital letters, spaces, and hyphens
-    const search = () => {
+    const search = (input) => {
         setFilteredShows(allShows.filter(x=>{
-            return (x.name.toLowerCase().replace(/-|\s/g,"").includes(text.toLowerCase().replace(/-|\s/g,"")) && x.poster_path !== null) ||
-            (x.original_name.toLowerCase().replace(/-|\s/g,"").includes(text.toLowerCase().replace(/-|\s/g,"")) && x.poster_path !== null);
+            return (x.name.toLowerCase().replace(/-|\s/g,"").includes(input.toLowerCase().replace(/-|\s/g,"")) && x.poster_path !== null) ||
+            (x.original_name.toLowerCase().replace(/-|\s/g,"").includes(input.toLowerCase().replace(/-|\s/g,"")) && x.poster_path !== null);
         }).slice(0, 20));
     }
 
     return (
         <div>
-            <input value={text} onChange={e => {setText(e.target.value); search();}}></input>
+            <input onChange={e => {e.preventDefault(); search(e.target.value);}}></input>
 
             <div className="tvShows">
                 {filteredShows !== [] && filteredShows.map(x => {return <TvShow key={x.id} result={x} />})}
