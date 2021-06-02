@@ -40,7 +40,7 @@ function Search(props) {
         setFilteredShows(allShows.filter(x=>{
             return (x.name.toLowerCase().replace(/-|\s/g,"").includes(input.toLowerCase().replace(/-|\s/g,"")) && x.poster_path !== null) ||
             (x.original_name.toLowerCase().replace(/-|\s/g,"").includes(input.toLowerCase().replace(/-|\s/g,"")) && x.poster_path !== null);
-        }).slice(0, 20));
+        }).slice(0, 40));
     }
 
     return (

@@ -37,14 +37,10 @@ function Home(props) {
         discover(1);
     }, []);
 
-    // to do
-    // make page btn mobile friendly // may not need to do this
-    // maybe only do this on super small phone screen
-    // sometimes clicking on button makes page go up, sometimes doesnt
-
-    // may want to make pic smaller for mobile
-
-    // on mobile, also put buttons on top
+    // When user change page, the screen will be scrolled to the top
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [currPage]);
 
     return (
         <div>

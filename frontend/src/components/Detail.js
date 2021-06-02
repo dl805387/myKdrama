@@ -31,6 +31,7 @@ function Detail(props) {
     }
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         if (props.location.id) {
             // Fetch API to get details of the drama
             axios.get("https://api.themoviedb.org/3/tv/" + props.location.id + "?api_key=2c3c49c8f9892c1b17ebf32c4b74bed0&language=en-US")
