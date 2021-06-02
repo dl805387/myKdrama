@@ -4,17 +4,20 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './components/Home';
 import Detail from './components/Detail';
+import Search from './components/Search';
 
 function App() {
 
     return (
         <div>     
+            <Search />
             <Router>
                 <Header />
 
                 <Switch>
                     <Route exact path="/home" component={Home} />
                     <Route path={"/detail/:name"} component={Detail} />
+                    <Route exact path={"/search"} component={Search} />
                 </Switch>
 
                 <Footer />
