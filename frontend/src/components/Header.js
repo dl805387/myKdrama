@@ -15,7 +15,10 @@ function Header(props) {
         <div>
             {/* A JSX comment */}
             <p> this is navbar </p>
-            <button onClick={e => {e.preventDefault(); history.push("/search");}}>Search</button>
+            <button onClick={e => {e.preventDefault(); history.push({
+                pathname: '/search',
+                fromHome: true
+            });}}>Search</button>
         </div>
     );
 }

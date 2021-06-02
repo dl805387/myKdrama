@@ -9,7 +9,7 @@ function Search(props) {
     const [text, setText] = useState("");
     const [filteredShows, setFilteredShows] = useState([]);
 
-    useEffect(() => {
+    const getAllDramas = () => {
         // API request to get the total pages
         axios.get("https://api.themoviedb.org/3/discover/tv?api_key=" + apiKey + "&language=en-US&sort_by=popularity.desc&page=" + 1 + 
         "&with_genres=18&include_null_first_air_dates=false&with_original_language=ko&with_watch_monetization_types=flatrate")
@@ -27,13 +27,20 @@ function Search(props) {
             }
             setAllShows(array);
         });
+    }
+
+    useEffect(() => {
+        // Will not make API call if the user refresh the page
+        if (props.location.fromHome) {
+            getAllDramas();
+        }
     }, []);
 
-    // Search show by filterering while ignoring capital letters or spaces
+    // Search show by filterering while ignoring capital letters, spaces, and hyphens
     const search = () => {
         setFilteredShows(allShows.filter(x=>{
-            return (x.name.toLowerCase().replace(/\s/g, '').includes(text.toLowerCase().replace(/\s/g, '')) && x.poster_path !== null) ||
-            (x.original_name.toLowerCase().replace(/\s/g, '').includes(text.toLowerCase().replace(/\s/g, '')) && x.poster_path !== null);
+            return (x.name.toLowerCase().replace(/-|\s/g,"").includes(text.toLowerCase().replace(/-|\s/g,"")) && x.poster_path !== null) ||
+            (x.original_name.toLowerCase().replace(/-|\s/g,"").includes(text.toLowerCase().replace(/-|\s/g,"")) && x.poster_path !== null);
         }).slice(0, 20));
     }
 

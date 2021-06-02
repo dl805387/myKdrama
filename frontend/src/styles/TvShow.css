@@ -61,16 +61,6 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-/* reduce max height and width for mobile screen
-we want to display 2 pictures across
-maybe not
-
-https://codepen.io/Bluetidepro/pen/GkpEa
-give credit for the star rating
-
-*/
-
-
 .starRatings {
     unicode-bidi: bidi-override;
     color: rgb(163, 141, 141);
@@ -100,6 +90,12 @@ give credit for the star rating
     display: block;
     z-index: 0;
 }
+
+/*
+Star Ratings css code from https://codepen.io/Bluetidepro/pen/GkpEa
+by Zach Reed
+Only changes made were width, height, and color
+*/
 
 @media (max-width: 550px)
 {
