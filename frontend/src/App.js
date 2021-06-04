@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import Home from './components/Home';
 import Detail from './components/Detail';
 import Search from './components/Search';
+import Login from './components/Login';
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
                     <Route exact path="/home" component={Home} />
                     <Route path={"/detail/:name"} component={Detail} />
                     <Route exact path={"/search"} component={Search} />
+                    <Route exact path={"/login"} component={Login} />
                 </Switch>
 
                 <Footer />

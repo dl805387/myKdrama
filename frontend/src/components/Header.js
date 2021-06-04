@@ -21,7 +21,9 @@ function Header(props) {
                     pathname: '/search',
                     fromHome: true
                 });}}>Search</li>
-                <li>yoo</li>
+                <li onClick={e => {e.preventDefault(); history.push({
+                    pathname: '/login'
+                });}}>Login</li>
             </ul>
         </div>
     );
