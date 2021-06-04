@@ -18,22 +18,22 @@ module.exports = connection;
 
 
 
-// app.post('/addUser', (req, res) => {
-//     const name = req.body.name;
+app.post('/add', (req, res) => {
+    const name = req.body.name;
 
-//     connection.query('INSERT INTO users (name) VALUES (?)', [name], (err, result)=> {
-//         if (err) {
-//             console.log(err);
-//         } else {
-//             console.log("success");
-//         }
-//     })
-// });
+    connection.query('INSERT INTO watched (name) VALUES (?)', [name], (err, result)=> {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send(result);
+        }
+    })
+});
 
 // simple route
 app.get("/", (req, res) => {
 
-  res.json({ message: "Welcome to myKdrama" });
+  res.json({ message: "Welcome to myKdrama!" });
 
 });
 
