@@ -22,7 +22,7 @@ function Login(props) {
     } = props;
 
     return (
-        <div>
+        <div className="loginPopup">
             <div className="loginSection">
 
                 <h2 className="loginTitle">Login</h2>

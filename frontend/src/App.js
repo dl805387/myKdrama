@@ -9,6 +9,10 @@ import Login from './components/Login';
 
 function App() {
 
+    // to do
+    // make a call to the backend to get it to wake up
+    // make the user wait a while until it finishes
+
     return (
         <div>     
             <Router>

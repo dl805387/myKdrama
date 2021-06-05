@@ -16,6 +16,8 @@ var connection = mysql.createPool({
 
 module.exports = connection;
 
+// works
+// puts the user into the database
 app.post('/addUser', (req, res) => {
     const username = req.body.username;
 
@@ -27,6 +29,29 @@ app.post('/addUser', (req, res) => {
         }
     })
 });
+
+// works
+// gets the userID based on username
+app.post('/getUserID', (req, res) => {
+    const username = req.body.username;
+
+    connection.query("SELECT * FROM users WHERE username = ?", [username], (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send(result);
+        }
+    });
+});
+
+
+
+
+
+
+
+
+
 
 // testing purposes
 app.post('/add', (req, res) => {
