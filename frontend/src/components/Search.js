@@ -45,7 +45,7 @@ function Search(props) {
 
     return (
         <div>
-            <input onChange={e => {e.preventDefault(); search(e.target.value);}}></input>
+            <input placeholder="start typing" onChange={e => {e.preventDefault(); search(e.target.value);}}></input>
 
             <div className="tvShows">
                 {filteredShows !== [] && filteredShows.map(x => {return <TvShow key={x.id} result={x} />})}
