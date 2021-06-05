@@ -16,8 +16,19 @@ var connection = mysql.createPool({
 
 module.exports = connection;
 
+app.post('/addUser', (req, res) => {
+    const username = req.body.username;
 
+    connection.query('INSERT INTO users (username) VALUES (?)', [username], (err, result)=> {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send(result);
+        }
+    })
+});
 
+// testing purposes
 app.post('/add', (req, res) => {
     const name = req.body.name;
 

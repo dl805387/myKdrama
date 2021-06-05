@@ -6,7 +6,7 @@ function Footer(props) {
 
     const add = () => {
 
-        axios.post('https://mykdrama.herokuapp.com/add', {
+        axios.post("https://mykdrama.herokuapp.com/add", {
             name: "testing"
         }).then((res) => {
             console.log("success");
