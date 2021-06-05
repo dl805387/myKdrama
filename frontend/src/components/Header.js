@@ -6,7 +6,7 @@ const axios = require('axios').default;
 function Header(props) {
 
     const history = useHistory();
-    
+    //const [user, setUser] = useState("");
 
     useEffect(() => {
         history.push("/home");
@@ -23,7 +23,8 @@ function Header(props) {
                     fromHome: true
                 });}}>Search</li>
                 <li onClick={e => {e.preventDefault(); history.push({
-                    pathname: '/login'
+                    pathname: '/login',
+                    fromHome: true
                 });}}>Login</li>
             </ul>
         </div>

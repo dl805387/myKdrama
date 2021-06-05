@@ -7,6 +7,10 @@ const axios = require('axios').default;
 function Login(props) {
 
     const [user, setUser] = useState("");
+    // const {
+    //     user,
+    //     setUser
+    // } = props.location;
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [emailError, setEmailError] = useState("");
@@ -69,7 +73,8 @@ function Login(props) {
                 //         //console.log("success");
                 //     });
                 // } 
-console.log("pass");
+
+
                 //when users successfully login, then history.push to home
                 if (!isError) {
                     // When user successfully sign up, they will be added to database
@@ -101,7 +106,9 @@ console.log("pass");
     } 
 
     useEffect(() => {
-        authListener();
+        if (props.location.fromHome) {
+            authListener();
+        }
     }, []);
 
     return (
@@ -142,7 +149,7 @@ console.log("pass");
             </div>
 
             <button onClick={handleLogout}>logout</button>
-            <button onClick={console.log(user)}>see user</button>
+            <button onClick={e => {e.preventDefault(); console.log("user:"); console.log(user);}}>see user</button>
         </div>
     ); 
 }
