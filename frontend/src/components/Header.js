@@ -105,19 +105,28 @@ function Header(props) {
     } 
 
     useEffect(() => {
-        history.push("/home");
         authListener();
     }, []);
 
     useEffect(() => {
-        console.log("testing");
+        console.log("user changed");
         // when user sign in, this will get the userID and other data
         if (user !== "") {
             axios.post('https://mykdrama.herokuapp.com/getUserID', {
                 username: user.email
             }).then((res) => {
                 setUserID(res.data[0].userID);
-                console.log(res.data);
+
+                // takes the user to the homepage and pass through the user id
+                history.push({
+                    pathname: '/home',
+                    userID: res.data[0].userID
+                });
+            });
+        } else {
+            history.push({
+                pathname: '/home',
+                userID: userID
             });
         }
     }, [user]);
@@ -131,7 +140,8 @@ function Header(props) {
         <div className="header">
             <ul>
                 <li onClick={e => {e.preventDefault(); history.push({
-                    pathname: '/home'
+                    pathname: '/home',
+                    userID: userID
                 });}}>Home</li>
                 <li onClick={e => {e.preventDefault(); history.push({
                     pathname: '/search',

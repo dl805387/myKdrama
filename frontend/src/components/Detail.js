@@ -91,6 +91,8 @@ function Detail(props) {
                     )}
                 </div>
 
+                <button onClick={e => {e.preventDefault(); console.log(props.location.userID); }}>add to watched</button>
+
                 <div className="detailLower">
                     <div className="iconWithText">
                         <FontAwesomeIcon icon="angle-double-right" size="2x" className="angleRight orange"/>

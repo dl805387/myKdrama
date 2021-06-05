@@ -6,7 +6,7 @@ const axios = require('axios').default;
 function TvShow(props) {
 
     const history = useHistory();
-    const {result, reco} = props;
+    const {result, reco, userID} = props;
 
     const toPercent = () => {
         return parseFloat((result.vote_average * 10).toFixed(2)) + "%";
@@ -34,7 +34,8 @@ function TvShow(props) {
         <div className="tvShow" 
             onClick={() => {history.push({
                 pathname: '/detail/' + result.name.replace(/\s/g, ''),
-                id: result.id
+                id: result.id,
+                userID: userID
             })}}
         >
             <img className={isRecoPic()} src={"https://image.tmdb.org/t/p/w500" + result.poster_path} alt={result.name}></img>

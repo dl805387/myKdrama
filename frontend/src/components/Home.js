@@ -57,7 +57,7 @@ function Home(props) {
             </div>
 
             <div className="tvShows">
-                {tvShows !== [] && tvShows.map(x => {return <TvShow key={x.id} result={x} />})}
+                {tvShows !== [] && tvShows.map(x => {return <TvShow key={x.id} result={x} userID={props.location.userID} />})}
             </div>
 
             <div className="pagesSection">
