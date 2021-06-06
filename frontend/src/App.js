@@ -5,7 +5,8 @@ import Footer from './components/Footer';
 import Home from './components/Home';
 import Detail from './components/Detail';
 import Search from './components/Search';
-import Login from './components/Login';
+import Watched from './components/Watched';
+import Watchlater from './components/Watchlater';
 
 function App() {
 
@@ -22,7 +23,8 @@ function App() {
                     <Route exact path="/home" component={Home} />
                     <Route path={"/detail/:name"} component={Detail} />
                     <Route exact path={"/search"} component={Search} />
-                    <Route exact path={"/login"} component={Login} />
+                    <Route exact path={"/watched"} component={Watched} />
+                    <Route exact path={"/watchlater"} component={Watchlater} />
                 </Switch>
 
                 <Footer />

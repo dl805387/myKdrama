@@ -76,8 +76,8 @@ app.post('/existWatched', (req, res) => {
     })
 });
 
-//
-// add show to the watched table
+// works
+// add show to the watchlater table
 app.post('/addWatchlater', (req, res) => {
     const userID = req.body.userID;
     const poster = req.body.poster;
@@ -93,8 +93,8 @@ app.post('/addWatchlater', (req, res) => {
     })
 });
 
-//
-// see if the show already exists in the watched table
+// works
+// see if the show already exists in the watchlater table
 app.post('/existWatchlater', (req, res) => {
     const userID = req.body.userID;
     const showID = req.body.showID;
@@ -107,6 +107,39 @@ app.post('/existWatchlater', (req, res) => {
         }
     })
 });
+
+// to do
+// get the values of watched and watchlater
+
+// get shows from watched table
+app.post('/getWatched', (req, res) => {
+    const userID = req.body.userID;
+
+    connection.query("SELECT * FROM watched WHERE userID = ?", [userID], (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send(result);
+        }
+    });
+});
+
+// get shows from watchlater table
+app.post('/getWatchlater', (req, res) => {
+    const userID = req.body.userID;
+
+    connection.query("SELECT * FROM watchlater WHERE userID = ?", [userID], (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send(result);
+        }
+    });
+});
+
+
+
+
 
 
 

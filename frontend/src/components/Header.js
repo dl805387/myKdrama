@@ -109,7 +109,6 @@ function Header(props) {
     }, []);
 
     useEffect(() => {
-        console.log("user changed");
         // when user sign in, this will get the userID and other data
         if (user !== "") {
             axios.post('https://mykdrama.herokuapp.com/getUserID', {
@@ -136,6 +135,12 @@ function Header(props) {
 
     // if userid is 0, then user cant add shows to watched or watch later
 
+    // might be a bug when refresh for first time; not sure
+    // the issue is that the server is asleep
+    // so history.push is delayed
+    // when u refresh, useeffect gets called, then it gets called again when user changed
+    // a fix could be to make a call to the server every 25 mins
+
     return (
         <div className="header">
             <ul>
@@ -143,10 +148,24 @@ function Header(props) {
                     pathname: '/home',
                     userID: userID
                 });}}>Home</li>
+
                 <li onClick={e => {e.preventDefault(); history.push({
                     pathname: '/search',
+                    userID: userID,
                     fromHome: true
                 });}}>Search</li>
+
+                <li onClick={e => {e.preventDefault(); history.push({
+                    pathname: '/watched',
+                    userID: userID,
+                    fromHome: true
+                });}}>Watched</li>    
+
+                <li onClick={e => {e.preventDefault(); history.push({
+                    pathname: '/watchlater',
+                    userID: userID,
+                    fromHome: true
+                });}}>Watch Later</li>             
 
                 {user ? (
                     <li onClick={handleLogout}>Logout</li>
