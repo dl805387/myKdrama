@@ -108,9 +108,8 @@ app.post('/existWatchlater', (req, res) => {
     })
 });
 
-// to do
-// get the values of watched and watchlater
 
+// works
 // get shows from watched table
 app.post('/getWatched', (req, res) => {
     const userID = req.body.userID;
@@ -124,6 +123,7 @@ app.post('/getWatched', (req, res) => {
     });
 });
 
+// works
 // get shows from watchlater table
 app.post('/getWatchlater', (req, res) => {
     const userID = req.body.userID;
@@ -138,18 +138,12 @@ app.post('/getWatchlater', (req, res) => {
 });
 
 
+// works
+// delete show from watched
+app.post('/deleteWatched', (req, res) => {
+    const watchedID = req.body.watchedID;
 
-
-
-
-
-
-
-// testing purposes
-app.post('/add', (req, res) => {
-    const name = req.body.name;
-
-    connection.query('INSERT INTO watched (name) VALUES (?)', [name], (err, result)=> {
+    connection.query('DELETE FROM watched WHERE watchedID = ?', [watchedID], (err, result)=> {
         if (err) {
             console.log(err);
         } else {
@@ -157,6 +151,26 @@ app.post('/add', (req, res) => {
         }
     })
 });
+
+// works
+// delete show from watched
+app.post('/deleteWatchlater', (req, res) => {
+    const watchlaterID = req.body.watchlaterID;
+
+    connection.query('DELETE FROM watchlater WHERE watchlaterID = ?', [watchlaterID], (err, result)=> {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send(result);
+        }
+    })
+});
+
+
+
+
+
+
 
 // simple route
 app.get("/", (req, res) => {
