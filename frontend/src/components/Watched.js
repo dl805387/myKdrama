@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom"; 
 import '../styles/watch.css'
+import MyDrama from "./MyDrama";
 const axios = require('axios').default;
 
 function Watched(props) {
 
-    const history = useHistory();
     const {userID, fromHome} = props.location;
     const [shows, setShows] = useState([]); 
 
@@ -16,14 +15,6 @@ function Watched(props) {
         }).then((res) => {
             setShows(res.data);
             console.log(res.data);
-        });
-    }
-
-    const remove = (watchedID) => {
-        axios.post('https://mykdrama.herokuapp.com/deleteWatched', {
-            watchedID: watchedID
-        }).then(() => {
-            console.log("success");
         });
     }
 
@@ -38,18 +29,7 @@ function Watched(props) {
         <div>
             {shows !== [] && (
                 shows.map(x=>{
-                    return (
-                        <div className="watchShow" key={x.showID}>
-                            <p>{x.name}</p>
-                            <img onClick={() => {history.push({
-                                pathname: '/detail/' + x.name.replace(/\s/g, ''),
-                                id: x.showID,
-                                userID: userID
-                            })}} src={"https://image.tmdb.org/t/p/w200" + x.poster} alt={x.name}></img>
-
-                            <button onClick={e => {e.preventDefault(); remove(x.watchedID)}}>delete</button>
-                        </div>
-                    );
+                    return (<MyDrama key={x.showID} userID={userID} x={x} dramaID={x.watchedID} fromWatched={true} />);
                 })
             )}
         </div>
