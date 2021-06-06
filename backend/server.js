@@ -44,10 +44,69 @@ app.post('/getUserID', (req, res) => {
     });
 });
 
+//works
+// add show to the watched table
+app.post('/addWatched', (req, res) => {
+    const userID = req.body.userID;
+    const poster = req.body.poster;
+    const name = req.body.name;
+    const showID = req.body.showID;
 
+    connection.query('INSERT INTO watched (userID, poster, name, showID) VALUES (?,?,?,?)', [userID, poster, name, showID], (err, result)=> {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send(result);
+        }
+    })
+});
 
+//works
+// see if the show already exists in the watched table
+app.post('/existWatched', (req, res) => {
+    const userID = req.body.userID;
+    const showID = req.body.showID;
 
+    connection.query('SELECT EXISTS(SELECT * from watched WHERE userID=? and showID=?)', [userID, showID], (err, result)=> {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send(result);
+        }
+    })
+});
 
+//
+// add show to the watched table
+app.post('/addWatchlater', (req, res) => {
+    const userID = req.body.userID;
+    const poster = req.body.poster;
+    const name = req.body.name;
+    const showID = req.body.showID;
+
+    connection.query('INSERT INTO watchlater (userID, poster, name, showID) VALUES (?,?,?,?)', [userID, poster, name, showID], (err, result)=> {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send(result);
+        }
+    })
+});
+
+//
+// see if the show already exists in the watched table
+app.post('/existWatchlater', (req, res) => {
+    const userID = req.body.userID;
+    const showID = req.body.showID;
+
+    connection.query('SELECT EXISTS(SELECT * from watchlater WHERE userID=? and showID=?)', [userID, showID], (err, result)=> {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send(result);
+        }
+    })
+});
 
 
 

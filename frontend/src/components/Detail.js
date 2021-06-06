@@ -7,6 +7,8 @@ const axios = require('axios').default;
 
 function Detail(props) {
 
+    const {userID} = props.location;
+
     const [data, setData] = useState({});
     const [recs, setRecs] = useState([]);
     const [noRecs, setNoRecs] = useState(false);
@@ -56,6 +58,72 @@ function Detail(props) {
         }
     }, [props.location]);
 
+
+    // add show to watched in database
+    const addWatched = () => {
+        axios.post("https://mykdrama.herokuapp.com/addWatched", {
+            userID: userID,
+            poster: data.poster_path,
+            name: data.name,
+            showID: data.id
+        }).then(() => {
+            console.log("success");
+        });
+    }
+
+    // checks to see if the show already exists in watched
+    const existWatched = () => {
+        axios.post("https://mykdrama.herokuapp.com/existWatched", {
+            userID: userID,
+            showID: data.id
+        }).then((res) => {
+            console.log("success");
+            let exist;
+            // Grabs the value of the first property in the object, which is the value to determine if this exist in database
+            // If its 0, that means it doesnt exist in our database. But if its not 0, then it does exist in our database
+            for (var x in res.data[0]) {
+                exist = res.data[0][x];
+                break;
+            }
+            console.log(exist);
+            // only add to watched if show is not currently in watched
+            if (exist === 0) {
+                addWatched();
+            }
+        });
+    }
+
+    // add show to watch later in database
+    const addWatchlater = () => {
+        axios.post("https://mykdrama.herokuapp.com/addWatchlater", {
+            userID: userID,
+            poster: data.poster_path,
+            name: data.name,
+            showID: data.id
+        }).then(() => {
+            console.log("success");
+        });
+    }
+
+    // checks to see if the show already exists in watched
+    const existWatchlater = () => {
+        axios.post("https://mykdrama.herokuapp.com/existWatchlater", {
+            userID: userID,
+            showID: data.id
+        }).then((res) => {
+            console.log("success");
+            let exist;
+            for (var x in res.data[0]) {
+                exist = res.data[0][x];
+                break;
+            }
+            console.log(exist);
+            if (exist === 0) {
+                addWatchlater();
+            }
+        });
+    }
+
     return ( 
         <div>
         {data !== {} && (
@@ -91,7 +159,8 @@ function Detail(props) {
                     )}
                 </div>
 
-                <button onClick={e => {e.preventDefault(); console.log(props.location.userID); }}>add to watched</button>
+                <button onClick={e => {e.preventDefault(); console.log(userID); existWatched(); }}>add to watched</button>
+                <button onClick={e => {e.preventDefault(); console.log(userID); existWatchlater(); }}>add to watch later</button>
 
                 <div className="detailLower">
                     <div className="iconWithText">
@@ -101,7 +170,7 @@ function Detail(props) {
 
                     <div className="scroll">
                         <div className="recommendations">
-                            {recs !== [] && recs.map(x => {return <TvShow key={x.id} result={x} reco={true} />})}
+                            {recs !== [] && recs.map(x => {return <TvShow key={x.id} result={x} reco={true} userID={userID} />})}
                         </div>
 
                         {noRecs && (
