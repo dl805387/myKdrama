@@ -148,3 +148,7 @@
     color: white;
 }
 
+.option {
+    cursor: pointer;
+    background-color: tomato;
+}

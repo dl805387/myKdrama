@@ -13,6 +13,10 @@ function Detail(props) {
     const [recs, setRecs] = useState([]);
     const [noRecs, setNoRecs] = useState(false);
 
+    // lets the user know if the show has already been added to watched/watch later
+    const [watchedOption, setWatchedOption] = useState(false);
+    const [watchlaterOption, setWatchlaterOption] = useState(false);
+
     const toPercent = () => {
         return parseFloat((data.vote_average * 10).toFixed(2)) + "%";
     }
@@ -40,6 +44,8 @@ function Detail(props) {
             .then((res) => {
                 setData(res.data);
                 console.log(res.data);
+                existWatched(res.data);
+                existWatchlater(res.data);
             });
 
             // Fetch API to get recommendations
@@ -58,21 +64,18 @@ function Detail(props) {
         }
     }, [props.location]);
 
-
-    // add show to watched in database
-    const addWatched = () => {
-        axios.post("https://mykdrama.herokuapp.com/addWatched", {
-            userID: userID,
-            poster: data.poster_path,
-            name: data.name,
-            showID: data.id
-        }).then(() => {
-            console.log("success");
-        });
-    }
+    // useEffect(() => {
+    //     if (data.id && userID) {
+    //         console.log("whhyyyy");
+    //         existWatched();
+    //         existWatchlater();
+    //     }
+    // }, [data]);
+    
 
     // checks to see if the show already exists in watched
-    const existWatched = () => {
+    const existWatched = (data) => {
+        console.log(data.id);
         axios.post("https://mykdrama.herokuapp.com/existWatched", {
             userID: userID,
             showID: data.id
@@ -88,25 +91,14 @@ function Detail(props) {
             console.log(exist);
             // only add to watched if show is not currently in watched
             if (exist === 0) {
-                addWatched();
+                //addWatched();
+                setWatchedOption(true);
             }
         });
     }
 
-    // add show to watch later in database
-    const addWatchlater = () => {
-        axios.post("https://mykdrama.herokuapp.com/addWatchlater", {
-            userID: userID,
-            poster: data.poster_path,
-            name: data.name,
-            showID: data.id
-        }).then(() => {
-            console.log("success");
-        });
-    }
-
     // checks to see if the show already exists in watched
-    const existWatchlater = () => {
+    const existWatchlater = (data) => {
         axios.post("https://mykdrama.herokuapp.com/existWatchlater", {
             userID: userID,
             showID: data.id
@@ -119,10 +111,65 @@ function Detail(props) {
             }
             console.log(exist);
             if (exist === 0) {
-                addWatchlater();
+                //addWatchlater();
+                setWatchlaterOption(true);
             }
         });
     }
+
+    // add show to watched in database
+    const addWatched = () => {
+        if (watchedOption) {
+            axios.post("https://mykdrama.herokuapp.com/addWatched", {
+                userID: userID,
+                poster: data.poster_path,
+                name: data.name,
+                showID: data.id
+            }).then(() => {
+                console.log("success");
+            });
+        }
+    }
+
+    // add show to watch later in database
+    const addWatchlater = () => {
+        if (watchlaterOption) {
+            axios.post("https://mykdrama.herokuapp.com/addWatchlater", {
+                userID: userID,
+                poster: data.poster_path,
+                name: data.name,
+                showID: data.id
+            }).then(() => {
+                console.log("success");
+            });
+        }
+    }
+
+    
+
+    
+
+
+    const test = () => {
+        if (watchedOption) {
+            console.log("option");
+            return "option";
+        } else {
+            return "notOption";
+        }
+    }
+
+    const test2 = () => {
+        if (watchlaterOption) {
+            console.log("option");
+            return "option";
+        } else {
+            return "notOption";
+        }
+    }
+
+    // to do
+    // once clicked on watched/watchlater, change classname
 
     return ( 
         <div>
@@ -159,8 +206,9 @@ function Detail(props) {
                     )}
                 </div>
 
-                <button onClick={e => {e.preventDefault(); console.log(userID); existWatched(); }}>add to watched</button>
-                <button onClick={e => {e.preventDefault(); console.log(userID); existWatchlater(); }}>add to watch later</button>
+                <button className={test()} onClick={e => {e.preventDefault(); addWatched(); }}>add to watched</button>
+                <button className={test2()}  onClick={e => {e.preventDefault(); addWatchlater(); }}>add to watch later</button>
+                <button onClick={e => {e.preventDefault(); console.log(watchedOption); console.log(watchlaterOption); }}>click to see options</button>
 
                 <div className="detailLower">
                     <div className="iconWithText">
