@@ -148,7 +148,7 @@
     color: white;
 }
 
-.option {
+.valid {
     cursor: pointer;
     background-color: tomato;
 }

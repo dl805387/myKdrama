@@ -115,7 +115,7 @@ function Header(props) {
                 username: user.email
             }).then((res) => {
                 setUserID(res.data[0].userID);
-
+                console.log("got user id");
                 // takes the user to the homepage and pass through the user id
                 history.push({
                     pathname: '/home',
