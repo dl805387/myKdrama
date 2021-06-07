@@ -3,7 +3,7 @@ import TvShow from '../components/TvShow';
 import '../styles/Home.css'
 const axios = require('axios').default;
 
-function Home(props) {
+function Home() {
 
     const apiKey = "2c3c49c8f9892c1b17ebf32c4b74bed0";
     const [currPage, setCurrPage] = useState(1);
@@ -56,7 +56,7 @@ function Home(props) {
             </div>
 
             <div className="tvShows">
-                {tvShows !== [] && tvShows.map(x => {return <TvShow key={x.id} result={x} userID={localStorage.getItem('userID')} />})}
+                {tvShows !== [] && tvShows.map(x => {return <TvShow key={x.id} result={x} />})}
             </div>
 
             <div className="pagesSection">

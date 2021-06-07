@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom"; 
 import '../styles/watch.css'
 const axios = require('axios').default;
@@ -6,9 +6,10 @@ const axios = require('axios').default;
 function MyDrama(props) {
 
     const history = useHistory();
-    const {userID, x, dramaID, fromWatched} = props;
+    const {data, dramaID, fromWatched} = props;
     const [isRemove, setIsRemove] = useState(true);
 
+    // remove show from database
     const remove = (dramaID) => {
         if (fromWatched) {
             axios.post('https://mykdrama.herokuapp.com/deleteWatched', {
@@ -30,13 +31,13 @@ function MyDrama(props) {
     return (
         <div>
             {isRemove && (
-                <div key={x.showID}>
-                    <p>{x.name}</p>
+                <div key={data.showID}>
+                    <p>{data.name}</p>
                     <img className="watchShow" onClick={() => {
-                        localStorage.setItem('locationID', x.showID);
+                        localStorage.setItem('showID', data.showID);
                         history.push(
-                         '/detail/' + x.name.replace(/\s/g, '')
-                    )}} src={"https://image.tmdb.org/t/p/w200" + x.poster} alt={x.name}></img>
+                         '/detail/' + data.name.replace(/\s/g, '')
+                    )}} src={"https://image.tmdb.org/t/p/w200" + data.poster} alt={data.name}></img>
 
                     <button onClick={e => {e.preventDefault(); remove(dramaID)}}>delete</button>
                 </div>

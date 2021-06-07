@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useHistory } from "react-router-dom"; 
 import '../styles/TvShow.css'
-const axios = require('axios').default;
 
 function TvShow(props) {
 
     const history = useHistory();
-    const {result, reco, userID} = props;
+    const {result, reco} = props;
 
     const toPercent = () => {
         return parseFloat((result.vote_average * 10).toFixed(2)) + "%";
@@ -33,7 +32,7 @@ function TvShow(props) {
     return (
         <div className="tvShow" 
             onClick={() => {
-                localStorage.setItem('locationID', result.id);
+                localStorage.setItem('showID', result.id);
                 history.push('/detail/' + result.name.replace(/\s/g, ''));
             }}
         >

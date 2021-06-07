@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from "react";
-const axios = require('axios').default; // if you need axios
-// import css if you need to
+import React from "react";
 
-function Footer(props) {
+function Footer() {
 
  
     return (

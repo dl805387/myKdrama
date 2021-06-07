@@ -5,7 +5,6 @@ const axios = require('axios').default;
 
 function Watched(props) {
 
-    const {userID, fromHome} = props.location;
     const [shows, setShows] = useState([]); 
 
     const getWatched = () => {
@@ -19,17 +18,14 @@ function Watched(props) {
     }
 
     useEffect(() => {
-        // Will not make API call if the user refresh the page
-        
-            getWatched();
-        
+        getWatched();
     }, [props.location]);
 
     return (
         <div>
             {shows !== [] && (
                 shows.map(x=>{
-                    return (<MyDrama key={x.showID} userID={localStorage.getItem('userID')} x={x} dramaID={x.watchedID} fromWatched={true} />);
+                    return (<MyDrama key={x.showID} userID={localStorage.getItem('userID')} data={x} dramaID={x.watchedID} fromWatched={true} />);
                 })
             )}
         </div>

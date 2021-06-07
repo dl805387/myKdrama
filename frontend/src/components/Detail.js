@@ -38,7 +38,7 @@ function Detail(props) {
         window.scrollTo(0, 0);
         if (true) {
             // Fetch API to get details of the drama
-            axios.get("https://api.themoviedb.org/3/tv/" + localStorage.getItem('locationID') + "?api_key=2c3c49c8f9892c1b17ebf32c4b74bed0&language=en-US")
+            axios.get("https://api.themoviedb.org/3/tv/" + localStorage.getItem('showID') + "?api_key=2c3c49c8f9892c1b17ebf32c4b74bed0&language=en-US")
             .then((res) => {
                 setData(res.data);
                 console.log(res.data);
@@ -47,7 +47,7 @@ function Detail(props) {
             });
 
             // Fetch API to get recommendations
-            axios.get("https://api.themoviedb.org/3/tv/" + localStorage.getItem('locationID') + "/recommendations?api_key=2c3c49c8f9892c1b17ebf32c4b74bed0&language=en-US&page=1")
+            axios.get("https://api.themoviedb.org/3/tv/" + localStorage.getItem('showID') + "/recommendations?api_key=2c3c49c8f9892c1b17ebf32c4b74bed0&language=en-US&page=1")
             .then((res) => {
                 // Filter the recommendations to only have korean shows
                 const onlyKo = res.data.results.filter(x=>{

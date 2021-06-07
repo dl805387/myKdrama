@@ -1,5 +1,5 @@
 .header {
-    margin-bottom: 45px;
+    margin-bottom: 60px;
 }
 
 ul {
@@ -37,5 +37,5 @@ li:hover {
 }
 
 .loginNav {
-    float: right;
+    float: right !important;
 }

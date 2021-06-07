@@ -7,7 +7,7 @@ import "./Icons.js";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const axios = require('axios').default;
 
-function Header(props) {
+function Header() {
 
     const history = useHistory();
     
@@ -20,7 +20,6 @@ function Header(props) {
 
     // for login popup
     const [loginPopup, setLoginPopup] = useState(false);
-    const [userID, setUserID] = useState(0);
 
     const clearInputs = () => {
         setEmail("");
@@ -92,7 +91,6 @@ function Header(props) {
 
     const handleLogout = () => {
         fire.auth().signOut();
-        //setUserID(0);     // may not need this
         localStorage.clear();
     }
 
@@ -112,32 +110,11 @@ function Header(props) {
     }, []);
 
     useEffect(() => {
-        // when user sign in, this will get the userID and other data
-        // if (user !== "") {
-        //     axios.post('https://mykdrama.herokuapp.com/getUserID', {
-        //         username: user.email
-        //     }).then((res) => {
-        //         setUserID(res.data[0].userID);
-        //         console.log("got user id");
-        //         // takes the user to the homepage and pass through the user id
-        //         history.push({
-        //             pathname: '/home',
-        //             userID: res.data[0].userID
-        //         });
-        //     });
-        // } else {
-        //     history.push({
-        //         pathname: '/home',
-        //         userID: userID
-        //     });
-        // }
-
         // when user sign in, the username will be used to get the user id, which will be stored in local storage
         if (user !== "") {
             axios.post('https://mykdrama.herokuapp.com/getUserID', {
                 username: user.email
             }).then((res) => {
-                //setUserID(res.data[0].userID);
                 console.log("got user id");
                 localStorage.setItem('userID', res.data[0].userID);
             })
@@ -161,28 +138,13 @@ function Header(props) {
     return (
         <div className="header">
             <ul>
-                <li onClick={e => {e.preventDefault(); history.push({
-                    pathname: '/home',
-                    userID: userID
-                });}}><FontAwesomeIcon icon="home" size="2x" /></li>
+                <li onClick={e => {e.preventDefault(); history.push('/home');}}><FontAwesomeIcon icon="home" size="2x" /></li>
 
-                <li onClick={e => {e.preventDefault(); history.push({
-                    pathname: '/search',
-                    userID: userID,
-                    fromHome: true
-                });}}><p>Search</p></li>
+                <li onClick={e => {e.preventDefault(); history.push('/search');}}><p>Search</p></li>
 
-                <li onClick={e => {e.preventDefault(); history.push({
-                    pathname: '/watched',
-                    userID: userID,
-                    fromHome: true
-                });}}><p>Watched</p></li>    
+                <li onClick={e => {e.preventDefault(); history.push('/watched');}}><p>Watched</p></li>    
 
-                <li onClick={e => {e.preventDefault(); history.push({
-                    pathname: '/watchlater',
-                    userID: userID,
-                    fromHome: true
-                });}}><p>Watch Later</p></li>             
+                <li onClick={e => {e.preventDefault(); history.push('/watchlater');}}><p>Watch Later</p></li>             
 
                 {user ? (
                     <li className="loginNav" onClick={handleLogout}><p>Logout</p></li>
@@ -192,7 +154,7 @@ function Header(props) {
                 
 
 
-                <button onClick={e => {e.preventDefault(); console.log("user:"); console.log(user); console.log("id is " + userID)}}>see user</button>
+                <button onClick={e => {e.preventDefault(); console.log("user:"); console.log(user); console.log("id is " + localStorage.getItem('userID'))}}>see user</button>
 
                 {loginPopup && (
                     <Login 
@@ -212,9 +174,6 @@ function Header(props) {
                 )}
                 
             </ul>
-
-            
-            
         </div>
     );
 }

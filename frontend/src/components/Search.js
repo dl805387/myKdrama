@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import TvShow from "./TvShow";
 const axios = require('axios').default;
 
-function Search(props) {
+function Search() {
 
     const apiKey = "2c3c49c8f9892c1b17ebf32c4b74bed0";
     const [allShows, setAllShows] = useState([]);
@@ -29,10 +29,8 @@ function Search(props) {
     }
 
     useEffect(() => {
-        // Will not make API call if the user refresh the page
-        
-            getAllDramas();
-        
+        console.log("got all dramas");
+        getAllDramas();
     }, []);
 
     // Search show by filterering while ignoring capital letters, spaces, and hyphens
@@ -43,12 +41,18 @@ function Search(props) {
         }).slice(0, 40));
     }
 
+    // note
+    // i believe the use effect is good
+    // if you click on search, while you are in search, it does not get all dramas
+    // this doesnt seem to be a problem because search still works
+    // this could also save api calls
+
     return (
         <div>
             <input placeholder="start typing" onChange={e => {e.preventDefault(); search(e.target.value);}}></input>
 
             <div className="tvShows">
-                {filteredShows !== [] && filteredShows.map(x => {return <TvShow key={x.id} result={x} userID={props.location.userID} />})}
+                {filteredShows !== [] && filteredShows.map(x => {return <TvShow key={x.id} result={x} />})}
             </div>
         </div>
     );
