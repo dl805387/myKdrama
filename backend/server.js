@@ -16,7 +16,7 @@ var connection = mysql.createPool({
 
 module.exports = connection;
 
-// works
+
 // puts the user into the database
 app.post('/addUser', (req, res) => {
     const username = req.body.username;
@@ -30,7 +30,7 @@ app.post('/addUser', (req, res) => {
     })
 });
 
-// works
+
 // gets the userID based on username
 app.post('/getUserID', (req, res) => {
     const username = req.body.username;
@@ -44,7 +44,7 @@ app.post('/getUserID', (req, res) => {
     });
 });
 
-//works
+
 // add show to the watched table
 app.post('/addWatched', (req, res) => {
     const userID = req.body.userID;
@@ -61,7 +61,7 @@ app.post('/addWatched', (req, res) => {
     })
 });
 
-//works
+
 // see if the show already exists in the watched table
 app.post('/existWatched', (req, res) => {
     const userID = req.body.userID;
@@ -76,7 +76,7 @@ app.post('/existWatched', (req, res) => {
     })
 });
 
-// works
+
 // add show to the watchlater table
 app.post('/addWatchlater', (req, res) => {
     const userID = req.body.userID;
@@ -93,7 +93,7 @@ app.post('/addWatchlater', (req, res) => {
     })
 });
 
-// works
+
 // see if the show already exists in the watchlater table
 app.post('/existWatchlater', (req, res) => {
     const userID = req.body.userID;
@@ -109,7 +109,6 @@ app.post('/existWatchlater', (req, res) => {
 });
 
 
-// works
 // get shows from watched table
 app.post('/getWatched', (req, res) => {
     const userID = req.body.userID;
@@ -123,7 +122,7 @@ app.post('/getWatched', (req, res) => {
     });
 });
 
-// works
+
 // get shows from watchlater table
 app.post('/getWatchlater', (req, res) => {
     const userID = req.body.userID;
@@ -138,7 +137,6 @@ app.post('/getWatchlater', (req, res) => {
 });
 
 
-// works
 // delete show from watched
 app.post('/deleteWatched', (req, res) => {
     const watchedID = req.body.watchedID;
@@ -152,7 +150,7 @@ app.post('/deleteWatched', (req, res) => {
     })
 });
 
-// works
+
 // delete show from watched
 app.post('/deleteWatchlater', (req, res) => {
     const watchlaterID = req.body.watchlaterID;

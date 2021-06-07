@@ -3,6 +3,8 @@ import { useHistory } from "react-router-dom";
 import '../styles/Header.css'
 import fire from '../fire';
 import Login from './Login';
+import "./Icons.js";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const axios = require('axios').default;
 
 function Header(props) {
@@ -147,30 +149,30 @@ function Header(props) {
                 <li onClick={e => {e.preventDefault(); history.push({
                     pathname: '/home',
                     userID: userID
-                });}}>Home</li>
+                });}}><FontAwesomeIcon icon="home" size="2x" /></li>
 
                 <li onClick={e => {e.preventDefault(); history.push({
                     pathname: '/search',
                     userID: userID,
                     fromHome: true
-                });}}>Search</li>
+                });}}><p>Search</p></li>
 
                 <li onClick={e => {e.preventDefault(); history.push({
                     pathname: '/watched',
                     userID: userID,
                     fromHome: true
-                });}}>Watched</li>    
+                });}}><p>Watched</p></li>    
 
                 <li onClick={e => {e.preventDefault(); history.push({
                     pathname: '/watchlater',
                     userID: userID,
                     fromHome: true
-                });}}>Watch Later</li>             
+                });}}><p>Watch Later</p></li>             
 
                 {user ? (
-                    <li onClick={handleLogout}>Logout</li>
+                    <li className="loginNav" onClick={handleLogout}><p>Logout</p></li>
                 ) : (
-                    <li onClick={e => {e.preventDefault(); setLoginPopup(true);}}>Login</li>
+                    <li className="loginNav" onClick={e => {e.preventDefault(); setLoginPopup(true);}}><p>Login</p></li>
                 )}
                 
 

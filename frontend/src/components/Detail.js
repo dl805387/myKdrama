@@ -64,13 +64,7 @@ function Detail(props) {
         }
     }, [props.location]);
 
-    // useEffect(() => {
-    //     if (data.id && userID) {
-    //         console.log("whhyyyy");
-    //         existWatched();
-    //         existWatchlater();
-    //     }
-    // }, [data]);
+
     
 
     // checks to see if the show already exists in watched
@@ -91,7 +85,6 @@ function Detail(props) {
             console.log(exist);
             // only add to watched if show is not currently in watched
             if (exist === 0) {
-                //addWatched();
                 setWatchedOption("valid");
             }
         });
@@ -111,7 +104,6 @@ function Detail(props) {
             }
             console.log(exist);
             if (exist === 0) {
-                //addWatchlater();
                 setWatchlaterOption("valid");
             }
         });
@@ -147,14 +139,6 @@ function Detail(props) {
         }
     }
 
-    
-
-    
-
-
-
-    // to do
-    // once clicked on watched/watchlater, change classname
 
     return ( 
         <div>
@@ -184,6 +168,9 @@ function Detail(props) {
                             <p className="subTitle">Synopsis</p>
                         </div>
                         <p className="synopsis">{data.overview}</p>
+
+                        <button className={watchedOption} onClick={e => {e.preventDefault(); addWatched();}}>add to watched</button>
+                        <button className={watchlaterOption}  onClick={e => {e.preventDefault(); addWatchlater();}}>add to watch later</button>
                     </div>
                     
                     {data.backdrop_path && (
@@ -191,9 +178,8 @@ function Detail(props) {
                     )}
                 </div>
 
-                <button className={watchedOption} onClick={e => {e.preventDefault(); addWatched(); }}>add to watched</button>
-                <button className={watchlaterOption}  onClick={e => {e.preventDefault(); addWatchlater(); }}>add to watch later</button>
-                <button onClick={e => {e.preventDefault(); console.log(watchedOption); console.log(watchlaterOption); }}>click to see options</button>
+                
+                <button onClick={e => {e.preventDefault(); console.log(watchedOption); console.log(watchlaterOption);}}>click to see options</button>
 
                 <div className="detailLower">
                     <div className="iconWithText">
