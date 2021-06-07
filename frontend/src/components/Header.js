@@ -54,7 +54,7 @@ function Header() {
                 if (!isError) {
                     setLoginPopup(false);
                 }
-
+                history.push('/home');
             });
     }
 
@@ -86,12 +86,14 @@ function Header() {
                         setLoginPopup(false);
                     });
                 }
+                history.push('/home');
             });
     }
 
     const handleLogout = () => {
         fire.auth().signOut();
         localStorage.clear();
+        history.push('/home');
     }
 
     const authListener = () => {
@@ -126,14 +128,26 @@ function Header() {
 
     // if userid is 0, then user cant add shows to watched or watch later
 
+    // on watched page, if user isnt logged in then tell user to log in
+    
+    // make navbar mogile friendly
+    // design watched and watch later page, and make it mobile friendly
+
+
+
+
+
+
+
+
+
     // might be a bug when refresh for first time; not sure
     // the issue is that the server is asleep
     // so history.push is delayed
     // when u refresh, useeffect gets called, then it gets called again when user changed
     // a fix could be to make a call to the server every 25 mins
+    // prolly will make a server call when user signs in
 
-
-    // when you log out, put the user back to home page
 
     return (
         <div className="header">
@@ -151,10 +165,6 @@ function Header() {
                 ) : (
                     <li className="loginNav" onClick={e => {e.preventDefault(); setLoginPopup(true);}}><p>Login</p></li>
                 )}
-                
-
-
-                <button onClick={e => {e.preventDefault(); console.log("user:"); console.log(user); console.log("id is " + localStorage.getItem('userID'))}}>see user</button>
 
                 {loginPopup && (
                     <Login 
@@ -170,6 +180,7 @@ function Header() {
                         passwordError = {passwordError}
                         clearErrors = {clearErrors}
                         clearInputs = {clearInputs}
+                        setLoginPopup = {setLoginPopup}
                     />
                 )}
                 
