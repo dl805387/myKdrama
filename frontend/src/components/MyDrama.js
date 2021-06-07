@@ -32,11 +32,11 @@ function MyDrama(props) {
             {isRemove && (
                 <div key={x.showID}>
                     <p>{x.name}</p>
-                    <img className="watchShow" onClick={() => {history.push({
-                        pathname: '/detail/' + x.name.replace(/\s/g, ''),
-                        id: x.showID,
-                        userID: localStorage.getItem('userID')
-                    })}} src={"https://image.tmdb.org/t/p/w200" + x.poster} alt={x.name}></img>
+                    <img className="watchShow" onClick={() => {
+                        localStorage.setItem('locationID', x.showID);
+                        history.push(
+                         '/detail/' + x.name.replace(/\s/g, '')
+                    )}} src={"https://image.tmdb.org/t/p/w200" + x.poster} alt={x.name}></img>
 
                     <button onClick={e => {e.preventDefault(); remove(dramaID)}}>delete</button>
                 </div>

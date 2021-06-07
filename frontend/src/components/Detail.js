@@ -137,6 +137,8 @@ function Detail(props) {
         }
     }
 
+    // cant add item to watched if user id is 0
+    // say you must log in to add items to watched
 
     return ( 
         <div>

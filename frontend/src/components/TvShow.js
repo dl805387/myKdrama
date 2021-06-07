@@ -34,10 +34,7 @@ function TvShow(props) {
         <div className="tvShow" 
             onClick={() => {
                 localStorage.setItem('locationID', result.id);
-                history.push({
-                pathname: '/detail/' + result.name.replace(/\s/g, ''),
-                id: result.id,
-                userID: userID});
+                history.push('/detail/' + result.name.replace(/\s/g, ''));
             }}
         >
             <img className={isRecoPic()} src={"https://image.tmdb.org/t/p/w500" + result.poster_path} alt={result.name}></img>

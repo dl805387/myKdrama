@@ -92,7 +92,7 @@ function Header(props) {
 
     const handleLogout = () => {
         fire.auth().signOut();
-        setUserID(0);
+        //setUserID(0);     // may not need this
         localStorage.clear();
     }
 
@@ -132,11 +132,12 @@ function Header(props) {
         //     });
         // }
 
+        // when user sign in, the username will be used to get the user id, which will be stored in local storage
         if (user !== "") {
             axios.post('https://mykdrama.herokuapp.com/getUserID', {
                 username: user.email
             }).then((res) => {
-                setUserID(res.data[0].userID);
+                //setUserID(res.data[0].userID);
                 console.log("got user id");
                 localStorage.setItem('userID', res.data[0].userID);
             })
