@@ -11,7 +11,7 @@ function Watchlater(props) {
     const getWatchlater = () => {
         // get workouts from database
         axios.post('https://mykdrama.herokuapp.com/getWatchlater', {
-            userID: userID
+            userID: localStorage.getItem('userID')
         }).then((res) => {
             setShows(res.data);
             console.log(res.data);
@@ -20,16 +20,16 @@ function Watchlater(props) {
 
     useEffect(() => {
         // Will not make API call if the user refresh the page
-        if (fromHome) {
+        
             getWatchlater();
-        }
+        
     }, [props.location]);
 
     return (
         <div>
             {shows !== [] && (
                 shows.map(x=>{
-                    return (<MyDrama key={x.showID} userID={userID} x={x} dramaID={x.watchlaterID} fromWatched={false} />);
+                    return (<MyDrama key={x.showID} userID={localStorage.getItem('userID')} x={x} dramaID={x.watchlaterID} fromWatched={false} />);
                 })
             )}
         </div>

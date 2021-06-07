@@ -93,6 +93,7 @@ function Header(props) {
     const handleLogout = () => {
         fire.auth().signOut();
         setUserID(0);
+        localStorage.clear();
     }
 
     const authListener = () => {
@@ -112,23 +113,33 @@ function Header(props) {
 
     useEffect(() => {
         // when user sign in, this will get the userID and other data
+        // if (user !== "") {
+        //     axios.post('https://mykdrama.herokuapp.com/getUserID', {
+        //         username: user.email
+        //     }).then((res) => {
+        //         setUserID(res.data[0].userID);
+        //         console.log("got user id");
+        //         // takes the user to the homepage and pass through the user id
+        //         history.push({
+        //             pathname: '/home',
+        //             userID: res.data[0].userID
+        //         });
+        //     });
+        // } else {
+        //     history.push({
+        //         pathname: '/home',
+        //         userID: userID
+        //     });
+        // }
+
         if (user !== "") {
             axios.post('https://mykdrama.herokuapp.com/getUserID', {
                 username: user.email
             }).then((res) => {
                 setUserID(res.data[0].userID);
                 console.log("got user id");
-                // takes the user to the homepage and pass through the user id
-                history.push({
-                    pathname: '/home',
-                    userID: res.data[0].userID
-                });
-            });
-        } else {
-            history.push({
-                pathname: '/home',
-                userID: userID
-            });
+                localStorage.setItem('userID', res.data[0].userID);
+            })
         }
     }, [user]);
 
@@ -142,6 +153,9 @@ function Header(props) {
     // so history.push is delayed
     // when u refresh, useeffect gets called, then it gets called again when user changed
     // a fix could be to make a call to the server every 25 mins
+
+
+    // when you log out, put the user back to home page
 
     return (
         <div className="header">

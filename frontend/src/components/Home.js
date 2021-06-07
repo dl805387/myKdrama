@@ -6,14 +6,13 @@ const axios = require('axios').default;
 function Home(props) {
 
     const apiKey = "2c3c49c8f9892c1b17ebf32c4b74bed0";
-    const [genre, setGenre] = useState(18);
     const [currPage, setCurrPage] = useState(1);
     const [tvShows, setTvShows] = useState([]);
 
     // Fetch API to get popular K dramas with page number
     const discover = (pageNum) => {
         axios.get("https://api.themoviedb.org/3/discover/tv?api_key=" + apiKey + "&language=en-US&sort_by=popularity.desc&page=" + pageNum + 
-        "&with_genres=" + genre + "&include_null_first_air_dates=false&with_original_language=ko&with_watch_monetization_types=flatrate")
+        "&with_genres=18&include_null_first_air_dates=false&with_original_language=ko&with_watch_monetization_types=flatrate")
         .then((res) => {
             // Filter by korean language and must have poster picture
             const onlyKo = res.data.results.filter(x=>{
@@ -57,7 +56,7 @@ function Home(props) {
             </div>
 
             <div className="tvShows">
-                {tvShows !== [] && tvShows.map(x => {return <TvShow key={x.id} result={x} userID={props.location.userID} />})}
+                {tvShows !== [] && tvShows.map(x => {return <TvShow key={x.id} result={x} userID={localStorage.getItem('userID')} />})}
             </div>
 
             <div className="pagesSection">

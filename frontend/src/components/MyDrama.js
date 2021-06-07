@@ -35,7 +35,7 @@ function MyDrama(props) {
                     <img className="watchShow" onClick={() => {history.push({
                         pathname: '/detail/' + x.name.replace(/\s/g, ''),
                         id: x.showID,
-                        userID: userID
+                        userID: localStorage.getItem('userID')
                     })}} src={"https://image.tmdb.org/t/p/w200" + x.poster} alt={x.name}></img>
 
                     <button onClick={e => {e.preventDefault(); remove(dramaID)}}>delete</button>

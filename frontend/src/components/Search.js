@@ -30,9 +30,9 @@ function Search(props) {
 
     useEffect(() => {
         // Will not make API call if the user refresh the page
-        if (props.location.fromHome) {
+        
             getAllDramas();
-        }
+        
     }, []);
 
     // Search show by filterering while ignoring capital letters, spaces, and hyphens

@@ -7,8 +7,6 @@ const axios = require('axios').default;
 
 function Detail(props) {
 
-    const {userID} = props.location;
-
     const [data, setData] = useState({});
     const [recs, setRecs] = useState([]);
     const [noRecs, setNoRecs] = useState(false);
@@ -38,9 +36,9 @@ function Detail(props) {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-        if (props.location.id) {
+        if (true) {
             // Fetch API to get details of the drama
-            axios.get("https://api.themoviedb.org/3/tv/" + props.location.id + "?api_key=2c3c49c8f9892c1b17ebf32c4b74bed0&language=en-US")
+            axios.get("https://api.themoviedb.org/3/tv/" + localStorage.getItem('locationID') + "?api_key=2c3c49c8f9892c1b17ebf32c4b74bed0&language=en-US")
             .then((res) => {
                 setData(res.data);
                 console.log(res.data);
@@ -49,7 +47,7 @@ function Detail(props) {
             });
 
             // Fetch API to get recommendations
-            axios.get("https://api.themoviedb.org/3/tv/" + props.location.id + "/recommendations?api_key=2c3c49c8f9892c1b17ebf32c4b74bed0&language=en-US&page=1")
+            axios.get("https://api.themoviedb.org/3/tv/" + localStorage.getItem('locationID') + "/recommendations?api_key=2c3c49c8f9892c1b17ebf32c4b74bed0&language=en-US&page=1")
             .then((res) => {
                 // Filter the recommendations to only have korean shows
                 const onlyKo = res.data.results.filter(x=>{
@@ -71,7 +69,7 @@ function Detail(props) {
     const existWatched = (data) => {
         console.log(data.id);
         axios.post("https://mykdrama.herokuapp.com/existWatched", {
-            userID: userID,
+            userID: localStorage.getItem('userID'),
             showID: data.id
         }).then((res) => {
             console.log("success");
@@ -93,7 +91,7 @@ function Detail(props) {
     // checks to see if the show already exists in watched
     const existWatchlater = (data) => {
         axios.post("https://mykdrama.herokuapp.com/existWatchlater", {
-            userID: userID,
+            userID: localStorage.getItem('userID'),
             showID: data.id
         }).then((res) => {
             console.log("success");
@@ -113,7 +111,7 @@ function Detail(props) {
     const addWatched = () => {
         if (watchedOption === "valid") {
             axios.post("https://mykdrama.herokuapp.com/addWatched", {
-                userID: userID,
+                userID: localStorage.getItem('userID'),
                 poster: data.poster_path,
                 name: data.name,
                 showID: data.id
@@ -128,7 +126,7 @@ function Detail(props) {
     const addWatchlater = () => {
         if (watchlaterOption === "valid") {
             axios.post("https://mykdrama.herokuapp.com/addWatchlater", {
-                userID: userID,
+                userID: localStorage.getItem('userID'),
                 poster: data.poster_path,
                 name: data.name,
                 showID: data.id
@@ -189,7 +187,7 @@ function Detail(props) {
 
                     <div className="scroll">
                         <div className="recommendations">
-                            {recs !== [] && recs.map(x => {return <TvShow key={x.id} result={x} reco={true} userID={userID} />})}
+                            {recs !== [] && recs.map(x => {return <TvShow key={x.id} result={x} reco={true} userID={localStorage.getItem('userID')} />})}
                         </div>
 
                         {noRecs && (
