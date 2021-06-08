@@ -174,9 +174,7 @@ function Header() {
 
                 <li onClick={e => {e.preventDefault(); history.push('/search');}}><p>Search</p></li>
 
-                <li onClick={e => {e.preventDefault(); history.push('/watched');}}><p>Watched</p></li>    
-
-                <li onClick={e => {e.preventDefault(); history.push('/watchlater');}}><p>Watch Later</p></li>             
+                <li onClick={e => {e.preventDefault(); history.push('/myKdrama');}}><p>myKdrama</p></li>             
 
                 {user ? (
                     <li className="loginNav" onClick={handleLogout}><p>Logout</p></li>

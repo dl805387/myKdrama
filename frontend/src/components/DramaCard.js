@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom"; 
 import "./Icons.js";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import '../styles/MyDrama.css'
+import '../styles/DramaCard.css'
 const axios = require('axios').default;
 
-function MyDrama(props) {
+function DramaCard(props) {
 
     const history = useHistory();
     const {data, dramaID, fromWatched} = props;
@@ -35,11 +35,7 @@ function MyDrama(props) {
         <div className="dramaCard">
             {isRemove && (
                 <div key={data.showID}>
-                    <div className="onTop">
-                        <div className="circle">
-                            <FontAwesomeIcon icon="trash-alt" size="2x" className="trashIcon" onClick={e => {e.preventDefault(); remove(dramaID)}} />
-                        </div>
-                    </div>
+                    
                     <img className="cardPic" 
                         onClick={() => {
                             localStorage.setItem('showID', data.showID);
@@ -47,7 +43,12 @@ function MyDrama(props) {
                         }}
                         src={"https://image.tmdb.org/t/p/w400" + data.poster} alt={data.name}>
                     </img>
-
+                    
+                    <div className="onTop">
+                        <div className="circle">
+                            <FontAwesomeIcon icon="trash-alt" size="2x" className="trashIcon" onClick={e => {e.preventDefault(); remove(dramaID)}} />
+                        </div>
+                    </div>
                     
                 </div>
             )}
@@ -55,4 +56,4 @@ function MyDrama(props) {
     );
 }
 
-export default MyDrama;
+export default DramaCard;

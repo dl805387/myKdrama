@@ -1,0 +1,46 @@
+.myDramas {
+    display: flex;
+}
+
+.arrowTitle {
+    display: flex;
+    margin-top: 80px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.purpleAngleRight {
+    color: rgb(119, 95, 255);
+    height: 30px;
+    margin: 0px;
+    margin-right: 3px;
+}
+
+.watchTitle {
+    margin: 0px;
+    margin-top: 4px;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(14, 13, 13);
+}
+
+.horzScroll {
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.horzScroll::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+.horzScroll::-webkit-scrollbar:horizontal {
+    height: 11px;
+}
+.horzScroll::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    border: 2px solid white;
+    background-color: rgba(0, 0, 0, .5);
+}
+.horzScroll::-webkit-scrollbar-track { 
+    background-color: white; 
+    border-radius: 8px; 
+} 

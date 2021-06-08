@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import '../styles/MyDrama.css'
+import '../styles/MyKdrama.css'
 import "./Icons.js";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import MyDrama from "./MyDrama";
+import DramaCard from "./DramaCard";
 const axios = require('axios').default;
 
-function Watched(props) {
+function MyKdrama(props) {
 
     const [watchedDramas, setWatchedDramas] = useState([]); 
     const [laterDramas, setLaterDramas] = useState([]); 
@@ -41,19 +41,23 @@ function Watched(props) {
                 <FontAwesomeIcon icon="angle-double-right" size="2x" className="purpleAngleRight"/>
                 <p className="watchTitle">Watched</p>
             </div>
-            <div className="myDramas">
-                {watchedDramas !== [] && watchedDramas.map(x=>{return <MyDrama key={x.showID} data={x} dramaID={x.watchedID} fromWatched={true} />})}
+            <div className="horzScroll">
+                <div className="myDramas">
+                    {watchedDramas !== [] && watchedDramas.map(x=>{return <DramaCard key={x.showID} data={x} dramaID={x.watchedID} fromWatched={true} />})}
+                </div>
             </div>
 
             <div className="arrowTitle">
                 <FontAwesomeIcon icon="angle-double-right" size="2x" className="purpleAngleRight"/>
                 <p className="watchTitle">Watch Later</p>
             </div>
-            <div className="myDramas">
-                {laterDramas !== [] && laterDramas.map(x=>{return <MyDrama key={x.showID} data={x} dramaID={x.watchedID} fromWatched={false} />})}
+            <div className="horzScroll">
+                <div className="myDramas">
+                    {laterDramas !== [] && laterDramas.map(x=>{return <DramaCard key={x.showID} data={x} dramaID={x.watchedID} fromWatched={false} />})}
+                </div>
             </div>
         </div>
     );
 }
 
-export default Watched;
+export default MyKdrama;
