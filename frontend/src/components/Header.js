@@ -55,6 +55,7 @@ function Header() {
                     setLoginPopup(false);
                 }
                 history.push('/home');
+                window.scrollTo(0, 0);
             });
     }
 
@@ -87,6 +88,7 @@ function Header() {
                     });
                 }
                 history.push('/home');
+                window.scrollTo(0, 0);
             });
     }
 
@@ -94,6 +96,7 @@ function Header() {
         fire.auth().signOut();
         localStorage.clear();
         history.push('/home');
+        window.scrollTo(0, 0);
     }
 
     const authListener = () => {
@@ -113,15 +116,19 @@ function Header() {
 
     useEffect(() => {
         // when user sign in, the username will be used to get the user id, which will be stored in local storage
-        if (user !== "") {
+        if (user && user !== "") {
             axios.post('https://mykdrama.herokuapp.com/getUserID', {
                 username: user.email
             }).then((res) => {
                 console.log("got user id");
-                localStorage.setItem('userID', res.data[0].userID);
+                if (res.data[0].userID) {
+                    localStorage.setItem('userID', res.data[0].userID);
+                }
             })
         }
     }, [user]);
+
+    // there is an error of when u signup and sometimes the success comes after got userid in console
 
     // to do
     // add comments 

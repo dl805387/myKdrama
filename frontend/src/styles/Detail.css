@@ -125,7 +125,7 @@
 .detailLower {
     background-color: rgb(68, 67, 66);
     padding-top: 0px;
-    width: 100%
+    width: 100%;
 }
 
 .orange {
@@ -154,7 +154,6 @@
 }
 
 .scroll::-webkit-scrollbar-track { 
-    background-color: #fff; 
     background-color: rgb(68, 67, 66);
     border-radius: 8px; 
 }

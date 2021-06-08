@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import '../styles/Detail.css'
 import "./Icons.js";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import TvShow from '../components/TvShow';
+import TvShow from './TvShow';
 const axios = require('axios').default;
 
 function Detail(props) {

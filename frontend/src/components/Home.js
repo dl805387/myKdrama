@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import TvShow from '../components/TvShow';
+import TvShow from './TvShow';
 import '../styles/Home.css'
 const axios = require('axios').default;
 
@@ -33,6 +33,7 @@ function Home() {
     }
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         discover(1);
     }, []);
 

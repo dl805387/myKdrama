@@ -30,6 +30,7 @@ function MyKdrama(props) {
     }
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         getWatched();
         getWatchlater();
     }, [props.location]);
