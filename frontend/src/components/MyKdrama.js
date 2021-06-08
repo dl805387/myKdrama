@@ -48,7 +48,7 @@ function MyKdrama(props) {
             </div>
 
             <div className="arrowTitle">
-                <FontAwesomeIcon icon="angle-double-right" size="2x" className="purpleAngleRight"/>
+                <FontAwesomeIcon icon="angle-double-right" size="2x" className="blueAngleRight"/>
                 <p className="watchTitle">Watch Later</p>
             </div>
             <div className="horzScroll">

@@ -41,3 +41,23 @@
     left: 150px;
     bottom: 305px;
 }
+
+@media (max-width: 500px) 
+{
+
+    .cardPic {
+        width: 150px;
+        height: 225px;
+        border-radius: 25px;
+    }
+
+    .dramaCard {
+        height: 225px;  
+    }
+
+    .onTop {
+        left: 102px;
+        bottom: 232px;
+    }
+
+}
