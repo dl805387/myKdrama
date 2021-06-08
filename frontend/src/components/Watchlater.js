@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import '../styles/MyDrama.css'
+import "./Icons.js";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import MyDrama from "./MyDrama";
 const axios = require('axios').default;
 
@@ -24,6 +26,10 @@ function Watchlater(props) {
     
     return (
         <div>
+            <div className="arrowTitle">
+                <FontAwesomeIcon icon="angle-double-right" size="2x" className="purpleAngleRight"/>
+                <p className="watchTitle">Watch Later</p>
+            </div>
             <div className="myDramas">
                 {shows !== [] && shows.map(x=>{return <MyDrama key={x.showID} data={x} dramaID={x.watchedID} fromWatched={false} />})}
             </div>

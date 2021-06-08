@@ -162,6 +162,10 @@ function Header() {
     // a fix could be to make a call to the server every 25 mins
     // prolly will make a server call when user signs in
 
+    // remove comments when u finish
+    // proofread comments too
+    // make sure none says things from fitness dashboard
+    // proofread server file too
 
     return (
         <div className="header">
