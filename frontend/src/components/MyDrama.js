@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom"; 
-import '../styles/watch.css'
+import "./Icons.js";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import '../styles/MyDrama.css'
 const axios = require('axios').default;
 
 function MyDrama(props) {
@@ -9,7 +11,7 @@ function MyDrama(props) {
     const {data, dramaID, fromWatched} = props;
     const [isRemove, setIsRemove] = useState(true);
 
-    // remove show from database
+    // remove show from database either from watched or watch later
     const remove = (dramaID) => {
         if (fromWatched) {
             axios.post('https://mykdrama.herokuapp.com/deleteWatched', {
@@ -28,18 +30,25 @@ function MyDrama(props) {
         }
     }
 
+
     return (
-        <div>
+        <div className="dramaCard">
             {isRemove && (
                 <div key={data.showID}>
-                    <p>{data.name}</p>
-                    <img className="watchShow" onClick={() => {
-                        localStorage.setItem('showID', data.showID);
-                        history.push(
-                         '/detail/' + data.name.replace(/\s/g, '')
-                    )}} src={"https://image.tmdb.org/t/p/w200" + data.poster} alt={data.name}></img>
+                    <div className="onTop">
+                        <div className="circle">
+                            <FontAwesomeIcon icon="trash-alt" size="2x" className="trashIcon" onClick={e => {e.preventDefault(); remove(dramaID)}} />
+                        </div>
+                    </div>
+                    <img className="cardPic" 
+                        onClick={() => {
+                            localStorage.setItem('showID', data.showID);
+                            history.push('/detail/' + data.name.replace(/\s/g, ''))
+                        }}
+                        src={"https://image.tmdb.org/t/p/w400" + data.poster} alt={data.name}>
+                    </img>
 
-                    <button onClick={e => {e.preventDefault(); remove(dramaID)}}>delete</button>
+                    
                 </div>
             )}
         </div>

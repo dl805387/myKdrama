@@ -38,8 +38,6 @@
 .signBtn {
     width: 100%;
     margin: 0px;
-    background-image: linear-gradient(to right, rgb(255, 196, 0) , rgb(255, 115, 0));
-    background-image: linear-gradient(to right, rgb(132, 193, 233) , rgb(140, 122, 236));
     background-image: linear-gradient(to right, rgb(76, 174, 240) , rgb(119, 95, 255));
     border: none;
     color: rgb(255, 255, 255);

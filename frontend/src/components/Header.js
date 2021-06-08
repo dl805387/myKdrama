@@ -126,7 +126,12 @@ function Header() {
     // to do
     // add comments 
 
-    // if userid is 0, then user cant add shows to watched or watch later
+    // make the footer
+    // mention API and put in your name
+    // also make the footer at the bottom
+    // ^ such as if the page is too short in search, watched, watch later
+    // min height prolly not a good solution
+    // maybe float bottom?
 
     // on watched page, if user isnt logged in then tell user to log in
     

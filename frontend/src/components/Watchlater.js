@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import '../styles/watch.css'
+import '../styles/MyDrama.css'
 import MyDrama from "./MyDrama";
 const axios = require('axios').default;
 
@@ -21,13 +21,12 @@ function Watchlater(props) {
         getWatchlater();
     }, [props.location]);
 
+    
     return (
         <div>
-            {shows !== [] && (
-                shows.map(x=>{
-                    return (<MyDrama key={x.showID} userID={localStorage.getItem('userID')} data={x} dramaID={x.watchlaterID} fromWatched={false} />);
-                })
-            )}
+            <div className="myDramas">
+                {shows !== [] && shows.map(x=>{return <MyDrama key={x.showID} data={x} dramaID={x.watchedID} fromWatched={false} />})}
+            </div>
         </div>
     );
 }
