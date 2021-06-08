@@ -14,6 +14,7 @@ function Detail(props) {
     // lets the user know if the show has already been added to watched/watch later
     const [watchedOption, setWatchedOption] = useState("notValid");
     const [watchlaterOption, setWatchlaterOption] = useState("notValid");
+    const [loggedIn, setLoggedIn] = useState(false);
 
     const toPercent = () => {
         return parseFloat((data.vote_average * 10).toFixed(2)) + "%";
@@ -35,31 +36,34 @@ function Detail(props) {
     }
 
     useEffect(() => {
-        window.scrollTo(0, 0);
-        if (true) {
-            // Fetch API to get details of the drama
-            axios.get("https://api.themoviedb.org/3/tv/" + localStorage.getItem('showID') + "?api_key=2c3c49c8f9892c1b17ebf32c4b74bed0&language=en-US")
-            .then((res) => {
-                setData(res.data);
-                console.log(res.data);
-                existWatched(res.data);
-                existWatchlater(res.data);
-            });
-
-            // Fetch API to get recommendations
-            axios.get("https://api.themoviedb.org/3/tv/" + localStorage.getItem('showID') + "/recommendations?api_key=2c3c49c8f9892c1b17ebf32c4b74bed0&language=en-US&page=1")
-            .then((res) => {
-                // Filter the recommendations to only have korean shows
-                const onlyKo = res.data.results.filter(x=>{
-                    return x.original_language === "ko" && x.poster_path !== null;
-                });
-                setRecs(onlyKo);
-                // Lets the user know if there are no recommendations
-                if (onlyKo.length === 0) {
-                    setNoRecs(true);
-                }
-            });
+        // If user is not logged in, then user won't be able to add show to watched/watch later
+        if (localStorage.getItem('userID') && localStorage.getItem('userID') !== "0") {
+            setLoggedIn(true);
         }
+
+        window.scrollTo(0, 0);
+        // Fetch API to get details of the drama
+        axios.get("https://api.themoviedb.org/3/tv/" + localStorage.getItem('showID') + "?api_key=2c3c49c8f9892c1b17ebf32c4b74bed0&language=en-US")
+        .then((res) => {
+            setData(res.data);
+            console.log(res.data);
+            existWatched(res.data);
+            existWatchlater(res.data);
+        });
+
+        // Fetch API to get recommendations
+        axios.get("https://api.themoviedb.org/3/tv/" + localStorage.getItem('showID') + "/recommendations?api_key=2c3c49c8f9892c1b17ebf32c4b74bed0&language=en-US&page=1")
+        .then((res) => {
+            // Filter the recommendations to only have korean shows
+            const onlyKo = res.data.results.filter(x=>{
+                return x.original_language === "ko" && x.poster_path !== null;
+            });
+            setRecs(onlyKo);
+            // Lets the user know if there are no recommendations
+            if (onlyKo.length === 0) {
+                setNoRecs(true);
+            }
+        });
     }, [props.location]);
 
 
@@ -137,8 +141,6 @@ function Detail(props) {
         }
     }
 
-    // cant add item to watched if user id is 0
-    // say you must log in to add items to watched
 
     return ( 
         <div>
@@ -169,17 +171,20 @@ function Detail(props) {
                         </div>
                         <p className="synopsis">{data.overview}</p>
 
-                        <button className={watchedOption} onClick={e => {e.preventDefault(); addWatched();}}>add to watched</button>
-                        <button className={watchlaterOption}  onClick={e => {e.preventDefault(); addWatchlater();}}>add to watch later</button>
+                        {loggedIn ? (
+                            <div>
+                                <button className={watchedOption} onClick={e => {e.preventDefault(); addWatched();}}>Add to Watched</button>
+                                <button className={watchlaterOption} onClick={e => {e.preventDefault(); addWatchlater();}}>Add to Watch Later</button>
+                            </div>
+                        ): (
+                            <p className="instr">Log in to add shows to watch/watch later</p>
+                        )}
                     </div>
                     
                     {data.backdrop_path && (
                         <div className="backdrop" style={{backgroundImage: `url(${"https://image.tmdb.org/t/p/original" + data.backdrop_path})`}}></div>
                     )}
                 </div>
-
-                
-                <button onClick={e => {e.preventDefault(); console.log(watchedOption); console.log(watchlaterOption);}}>click to see options</button>
 
                 <div className="detailLower">
                     <div className="iconWithText">

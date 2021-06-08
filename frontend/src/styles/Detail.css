@@ -149,6 +149,46 @@
 }
 
 .valid {
-    cursor: pointer;
-    background-color: tomato;
+    cursor: copy;
+    background-color: rgb(186, 214, 183);
+    margin: 10px;
+    padding: 15px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+}
+
+.notValid {
+    cursor: not-allowed;
+    border-style: outset;
+    background-color: rgb(212, 212, 212);
+    margin: 10px;
+    padding: 15px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+}
+
+.instr {
+    color: black;
+    background-color: rgb(186, 214, 183);
+    margin: 10px;
+    padding: 15px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    display: inline-block;
+}
+
+@media (max-width: 500px) 
+{
+
+    .valid {
+        font-size: 14px;
+    }
+
+    .notValid {
+        font-size: 14px;
+    }
+
 }

@@ -131,15 +131,24 @@ function Header() {
     // on watched page, if user isnt logged in then tell user to log in
     
     // make navbar mogile friendly
+    // navbar not mobile friendly right now
+
+
     // design watched and watch later page, and make it mobile friendly
 
+    // maybe change page button color
 
 
+    // change the project name on the browser
+    // change logo
 
 
+    // let user know if api calls all used up
+
+    // when you finish with everything, make sure that the server file is updated on pushed
 
 
-
+    // when you make loading page, set the cursor style to wait
 
     // might be a bug when refresh for first time; not sure
     // the issue is that the server is asleep
