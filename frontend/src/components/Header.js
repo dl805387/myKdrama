@@ -167,6 +167,8 @@ function Header() {
     // make sure none says things from fitness dashboard
     // proofread server file too
 
+    // add text to readme
+
     return (
         <div className="header">
             <ul>
