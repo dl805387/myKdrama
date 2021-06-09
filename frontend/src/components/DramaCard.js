@@ -17,16 +17,12 @@ function DramaCard(props) {
             axios.post('https://mykdrama.herokuapp.com/deleteWatched', {
                 watchedID: dramaID
             }).then(() => {
-                console.log("success");
-                console.log(dramaID);
                 setIsRemove(false);
             });
         } else {
             axios.post('https://mykdrama.herokuapp.com/deleteWatchlater', {
                 watchlaterID: dramaID
             }).then(() => {
-                console.log("success, deleted from watch later");
-                console.log(dramaID);
                 setIsRemove(false);
             });
         }

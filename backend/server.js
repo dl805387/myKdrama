@@ -151,7 +151,7 @@ app.post('/deleteWatched', (req, res) => {
 });
 
 
-// delete show from watched
+// delete show from watchlater
 app.post('/deleteWatchlater', (req, res) => {
     const watchlaterID = req.body.watchlaterID;
 

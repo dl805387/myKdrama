@@ -30,7 +30,6 @@ function Search() {
     }
 
     useEffect(() => {
-        console.log("got all dramas");
         getAllDramas();
     }, []);
 
@@ -42,11 +41,7 @@ function Search() {
         }).slice(0, 40));
     }
 
-    // note
-    // i believe the use effect is good
-    // if you click on search, while you are in search, it does not get all dramas
-    // this doesnt seem to be a problem because search still works
-    // this could also save api calls
+
 
     return (
         <div className="searchPage">

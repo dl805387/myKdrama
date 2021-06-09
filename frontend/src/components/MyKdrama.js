@@ -16,7 +16,6 @@ function MyKdrama(props) {
             userID: localStorage.getItem('userID')
         }).then((res) => {
             setWatchedDramas(res.data);
-            console.log(res.data);
         });
     }
 
@@ -25,7 +24,6 @@ function MyKdrama(props) {
             userID: localStorage.getItem('userID')
         }).then((res) => {
             setLaterDramas(res.data);
-            console.log(res.data);
         });
     }
 

@@ -16,10 +16,12 @@ function Detail(props) {
     const [watchlaterOption, setWatchlaterOption] = useState("notValid");
     const [loggedIn, setLoggedIn] = useState(false);
 
+    // convert rating to percent with a percent symbol at the end
     const toPercent = () => {
         return parseFloat((data.vote_average * 10).toFixed(2)) + "%";
     }
 
+    // If there are multiple genres, then this will combine them with a comma in between
     const strGenre = () => {
         if (!data.genres) {
             return "";
@@ -46,7 +48,6 @@ function Detail(props) {
         axios.get("https://api.themoviedb.org/3/tv/" + localStorage.getItem('showID') + "?api_key=2c3c49c8f9892c1b17ebf32c4b74bed0&language=en-US")
         .then((res) => {
             setData(res.data);
-            console.log(res.data);
             existWatched(res.data);
             existWatchlater(res.data);
         });
@@ -71,12 +72,10 @@ function Detail(props) {
 
     // checks to see if the show already exists in watched
     const existWatched = (data) => {
-        console.log(data.id);
         axios.post("https://mykdrama.herokuapp.com/existWatched", {
             userID: localStorage.getItem('userID'),
             showID: data.id
         }).then((res) => {
-            console.log("success");
             let exist;
             // Grabs the value of the first property in the object, which is the value to determine if this exist in database
             // If its 0, that means it doesnt exist in our database. But if its not 0, then it does exist in our database
@@ -84,7 +83,6 @@ function Detail(props) {
                 exist = res.data[0][x];
                 break;
             }
-            console.log(exist);
             // only add to watched if show is not currently in watched
             if (exist === 0) {
                 setWatchedOption("valid");
@@ -98,13 +96,11 @@ function Detail(props) {
             userID: localStorage.getItem('userID'),
             showID: data.id
         }).then((res) => {
-            console.log("success");
             let exist;
             for (var x in res.data[0]) {
                 exist = res.data[0][x];
                 break;
             }
-            console.log(exist);
             if (exist === 0) {
                 setWatchlaterOption("valid");
             }
@@ -120,7 +116,6 @@ function Detail(props) {
                 name: data.name,
                 showID: data.id
             }).then(() => {
-                console.log("success");
                 setWatchedOption("notValid");
             });
         }
@@ -135,7 +130,6 @@ function Detail(props) {
                 name: data.name,
                 showID: data.id
             }).then(() => {
-                console.log("success");
                 setWatchlaterOption("notValid");
             });
         }

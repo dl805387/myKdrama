@@ -82,7 +82,6 @@ function Header() {
                     axios.post("https://mykdrama.herokuapp.com/addUser", {
                         username: email
                     }).then(() => {
-                        console.log("success");
                         setLoginPopup(false);
                         getUserID(email);
                     });
@@ -115,7 +114,6 @@ function Header() {
             axios.post('https://mykdrama.herokuapp.com/getUserID', {
                 username: email
             }).then((res) => {
-                console.log("got user id");
                 if (res.data[0]) {
                     localStorage.setItem('userID', res.data[0].userID);
                 }
@@ -134,7 +132,6 @@ function Header() {
             axios.post('https://mykdrama.herokuapp.com/getUserID', {
                 username: user.email
             }).then((res) => {
-                console.log("got user id");
                 if (res.data[0]) {
                     localStorage.setItem('userID', res.data[0].userID);
                 }
@@ -148,10 +145,6 @@ function Header() {
 
 
     // to do
-    // add comments 
-
-    // test to make sure there is no memory leak
-    // there could be one in the header.js, not sure
 
 
     // let user know if api calls all used up
@@ -171,9 +164,7 @@ function Header() {
         <div className="header">
             <ul>
                 <li onClick={e => {e.preventDefault(); history.push('/home');}}><FontAwesomeIcon icon="home" size="2x" className="homeIcon" /></li>
-
                 <li onClick={e => {e.preventDefault(); history.push('/search');}}><p>Search</p></li>
-
                 <li onClick={e => {e.preventDefault(); history.push('/myKdrama');}}><p>myKdrama</p></li>             
 
                 {user ? (
@@ -198,9 +189,7 @@ function Header() {
                         clearInputs = {clearInputs}
                         setLoginPopup = {setLoginPopup}
                     />
-                )}
-
-                
+                )}       
             </ul>
         </div>
     );

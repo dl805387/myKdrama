@@ -7,6 +7,7 @@ function TvShow(props) {
     const history = useHistory();
     const {result, reco} = props;
 
+    // convert rating to percent with a percent symbol at the end
     const toPercent = () => {
         return parseFloat((result.vote_average * 10).toFixed(2)) + "%";
     }
@@ -20,7 +21,7 @@ function TvShow(props) {
         }
     }
 
-    // If the tv show is a recommendation, then it will not have "click for more detail!"
+    // If the tv show is a recommendation, then it will not have "click for more detail!" text
     const isRecoFooter = () => {
         if (reco) {
             return "noFooter";
