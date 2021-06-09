@@ -160,9 +160,6 @@ function Header() {
 
 
 
-    // maybe change page button color
-
-
     // change the project name on the browser
     // change logo
 

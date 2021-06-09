@@ -17,7 +17,7 @@
     font-weight: bold;
     margin-left: 3px;
     cursor: pointer;
-    background-color: rgb(240, 230, 216);
+    background-color: white;
     border-radius: 3px;
     border-color: black;
     border-width: 1px;
@@ -25,7 +25,7 @@
 }
 
 .currPage {
-    background-color: rgb(140, 220, 240);
+    background-color: rgb(132, 216, 255);
 }
 
 @media (max-width: 319px)

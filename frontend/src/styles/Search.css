@@ -6,13 +6,44 @@
 .searchInput {
     width: 40%;
     padding: 12px 20px;
-    margin-left: 2%;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
     outline: none;
     font-size: 16px;
     border-radius: 4px;
+    margin-left: 2%;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 1000px) 
+{
+    
+    .searchInput {
+        width: 50%;
+    }
+
+}
+
+@media (max-width: 700px) 
+{
+    
+    .searchInput {
+        width: 60%;
+        margin: auto;
+        display: block;
+        margin-bottom: 15px !important;
+    }
+
+}
+
+@media (max-width: 600px) 
+{
+    
+    .searchInput {
+        width: 70%;
+    }
+
 }
 
 @media (max-width: 500px) 
@@ -20,6 +51,15 @@
     
     .searchInput {
         width: 80%;
+    }
+
+}
+
+@media (max-width: 400px) 
+{
+    
+    .searchInput {
+        width: 90%;
     }
 
 }
