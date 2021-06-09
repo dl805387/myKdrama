@@ -53,7 +53,7 @@ function Search() {
             <input className="searchInput" placeholder="start typing" onChange={e => {e.preventDefault(); search(e.target.value);}}></input>
 
             <div className="tvShows">
-                {filteredShows !== [] && filteredShows.map(x => {return <TvShow key={x.id} result={x} />})}
+                {filteredShows.length !== 0 && filteredShows.map(x => {return <TvShow key={x.id} result={x} />})}
             </div>
         </div>
     );

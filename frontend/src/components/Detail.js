@@ -194,7 +194,7 @@ function Detail(props) {
 
                     <div className="scroll">
                         <div className="recommendations">
-                            {recs !== [] && recs.map(x => {return <TvShow key={x.id} result={x} reco={true} userID={localStorage.getItem('userID')} />})}
+                            {recs.length !== 0 && recs.map(x => {return <TvShow key={x.id} result={x} reco={true} userID={localStorage.getItem('userID')} />})}
                         </div>
 
                         {noRecs && (

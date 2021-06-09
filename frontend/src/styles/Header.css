@@ -29,6 +29,7 @@ li p {
     font-weight: bold;
     margin: 0px;
     margin-top: 3px;
+    padding-bottom: 6px;
 }
   
 li:hover {
@@ -41,6 +42,7 @@ li:hover {
 
 .homeIcon {
     font-size: 28px;
+    padding-bottom: 2px;
 }
 
 @media (max-width: 379px) 
@@ -52,10 +54,12 @@ li:hover {
 
     li p {
         font-size: 18px;
+        padding-bottom: 0px;
     }
 
     .homeIcon {
         font-size: 24px;
+        padding-bottom: 0px;
     }
 
 }

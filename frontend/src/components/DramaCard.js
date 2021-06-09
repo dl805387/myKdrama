@@ -18,13 +18,15 @@ function DramaCard(props) {
                 watchedID: dramaID
             }).then(() => {
                 console.log("success");
+                console.log(dramaID);
                 setIsRemove(false);
             });
         } else {
             axios.post('https://mykdrama.herokuapp.com/deleteWatchlater', {
                 watchlaterID: dramaID
             }).then(() => {
-                console.log("success");
+                console.log("success, deleted from watch later");
+                console.log(dramaID);
                 setIsRemove(false);
             });
         }
@@ -46,7 +48,7 @@ function DramaCard(props) {
                     
                     <div className="onTop">
                         <div className="circle">
-                            <FontAwesomeIcon icon="trash-alt" size="2x" className="trashIcon" onClick={e => {e.preventDefault(); remove(dramaID)}} />
+                            <FontAwesomeIcon icon="trash-alt" size="2x" className="trashIcon" onClick={e => {e.preventDefault(); remove(dramaID);}} />
                         </div>
                     </div>
                     

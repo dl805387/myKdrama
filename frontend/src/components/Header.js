@@ -55,8 +55,6 @@ function Header() {
                     setLoginPopup(false);
                 }
                 getUserID(email);
-                history.push('/home');
-                window.scrollTo(0, 0);
             });
     }
 
@@ -89,8 +87,6 @@ function Header() {
                         getUserID(email);
                     });
                 }
-                history.push('/home');
-                window.scrollTo(0, 0);
             });
     }
 
@@ -123,6 +119,7 @@ function Header() {
                 if (res.data[0]) {
                     localStorage.setItem('userID', res.data[0].userID);
                 }
+                history.push('/home');
             })
         }
     }
@@ -153,9 +150,11 @@ function Header() {
     // to do
     // add comments 
 
+    // test to make sure there is no memory leak
+    // there could be one in the header.js, not sure
 
     // on myKdrama page, if user isnt logged in then tell user to log in
-    
+    // we already set up the code for this, just find out what to say
 
 
     // change the project name on the browser

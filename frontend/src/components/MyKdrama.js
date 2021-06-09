@@ -31,8 +31,10 @@ function MyKdrama(props) {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-        getWatched();
-        getWatchlater();
+        if (localStorage.getItem('userID') && localStorage.getItem('userID') !== "0") {
+            getWatched();
+            getWatchlater();
+        }
     }, [props.location]);
 
     
@@ -44,9 +46,11 @@ function MyKdrama(props) {
             </div>
             <div className="horzScroll">
                 <div className="myDramas">
-                    {watchedDramas !== [] && watchedDramas.map(x=>{return <DramaCard key={x.showID} data={x} dramaID={x.watchedID} fromWatched={true} />})}
+                    {watchedDramas.length !== 0 && watchedDramas.map(x=>{return <DramaCard key={x.showID} data={x} dramaID={x.watchedID} fromWatched={true} />})}
                 </div>
             </div>
+
+            {watchedDramas.length === 0 && laterDramas.length === 0 && (<p>Add Shows to the list!</p>)}
 
             <div className="arrowTitle">
                 <FontAwesomeIcon icon="angle-double-right" size="2x" className="blueAngleRight"/>
@@ -54,7 +58,7 @@ function MyKdrama(props) {
             </div>
             <div className="horzScroll">
                 <div className="myDramas">
-                    {laterDramas !== [] && laterDramas.map(x=>{return <DramaCard key={x.showID} data={x} dramaID={x.watchedID} fromWatched={false} />})}
+                    {laterDramas.length !== 0 && laterDramas.map(x=>{return <DramaCard key={x.showID} data={x} dramaID={x.watchlaterID} fromWatched={false} />})}
                 </div>
             </div>
         </div>

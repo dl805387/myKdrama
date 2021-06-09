@@ -1,4 +1,5 @@
 import './App.css';
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -12,6 +13,10 @@ function App() {
     // to do
     // make a call to the backend to get it to wake up
     // make the user wait a while until it finishes
+
+    useEffect(() => {
+        console.log("yes");
+    }, []);
 
     return (
         <div>     

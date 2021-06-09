@@ -57,7 +57,7 @@ function Home() {
             </div>
 
             <div className="tvShows">
-                {tvShows !== [] && tvShows.map(x => {return <TvShow key={x.id} result={x} />})}
+                {tvShows.length !== 0 && tvShows.map(x => {return <TvShow key={x.id} result={x} />})}
             </div>
 
             <div className="pagesSection">
