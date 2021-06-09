@@ -85,6 +85,7 @@ function Header() {
                     }).then(() => {
                         console.log("success");
                         setLoginPopup(false);
+                        getUserID(email);
                     });
                 }
                 history.push('/home');
@@ -110,6 +111,21 @@ function Header() {
         });
     } 
 
+    // get user id based on email
+    // this is used if "user" has not been set yet
+    const getUserID = (email) => {
+        if (email && email !== "") {
+            axios.post('https://mykdrama.herokuapp.com/getUserID', {
+                username: email
+            }).then((res) => {
+                console.log("got user id");
+                if (res.data[0]) {
+                    localStorage.setItem('userID', res.data[0].userID);
+                }
+            })
+        }
+    }
+
     useEffect(() => {
         authListener();
     }, []);
@@ -121,14 +137,17 @@ function Header() {
                 username: user.email
             }).then((res) => {
                 console.log("got user id");
-                if (res.data[0].userID) {
+                if (res.data[0]) {
                     localStorage.setItem('userID', res.data[0].userID);
                 }
             })
         }
     }, [user]);
 
-    // there is an error of when u signup and sometimes the success comes after got userid in console
+    
+
+
+
 
     // to do
     // add comments 
@@ -208,6 +227,8 @@ function Header() {
                         setLoginPopup = {setLoginPopup}
                     />
                 )}
+
+                <button onClick={e => {e.preventDefault(); console.log(localStorage.getItem('userID')); console.log(email);}}>see local storage</button>
                 
             </ul>
         </div>

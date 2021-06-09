@@ -37,7 +37,7 @@ function MyKdrama(props) {
 
     
     return (
-        <div>
+        <div className="myKdramaPage">
             <div className="arrowTitle">
                 <FontAwesomeIcon icon="angle-double-right" size="2x" className="purpleAngleRight"/>
                 <p className="watchTitle">Watched</p>

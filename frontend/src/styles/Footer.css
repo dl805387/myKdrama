@@ -1,10 +1,14 @@
 .footer {
-    padding: 10px;
+    padding: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     margin-top: 0px;
     background-color: rgb(68, 67, 66);
+    width: 100%;
 }
 
 .footerText {
-    margin: 0px;
+    margin: 3px;
+    margin-left: 10px;
     color: white;
 }

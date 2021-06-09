@@ -1,3 +1,7 @@
+.myKdramaPage {
+    min-height: calc(100vh - 156px);
+}
+
 .myDramas {
     display: flex;
 }
