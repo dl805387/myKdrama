@@ -153,9 +153,6 @@ function Header() {
     // test to make sure there is no memory leak
     // there could be one in the header.js, not sure
 
-    // on myKdrama page, if user isnt logged in then tell user to log in
-    // we already set up the code for this, just find out what to say
-    // its in a good location too, just add some margin such as margin left
 
     // change the project name on the browser
     // change logo
@@ -165,9 +162,6 @@ function Header() {
     // when you finish with everything, make sure that the server file is updated on pushed
 
 
-    // when you make loading page, set the cursor style to wait
-
-    // test "sleep" screen
 
     // remove comments when u finish
     // proofread comments too

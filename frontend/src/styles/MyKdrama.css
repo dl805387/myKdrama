@@ -1,5 +1,6 @@
 .myKdramaPage {
     min-height: calc(100vh - 156px);
+    margin-top: 80px;
 }
 
 .myDramas {
@@ -8,7 +9,7 @@
 
 .arrowTitle {
     display: flex;
-    margin-top: 80px;
+    margin-top: 40px;
     margin-left: 10px;
     margin-right: 10px;
 }
@@ -35,6 +36,16 @@
     color: rgb(14, 13, 13);
 }
 
+.emptyMessage {
+    margin-top: 20px;
+}
+
+.emptyMessage p {
+    margin: 5px;
+    margin-left: 10px;
+    font-size: 18px;
+}
+
 .horzScroll {
     overflow-x: scroll;
     overflow-y: hidden;
@@ -57,4 +68,14 @@
 .horzScroll::-webkit-scrollbar-track { 
     background-color: white; 
     border-radius: 8px; 
+}
+
+@media (max-width: 500px) 
+{
+
+    .myKdramaPage {
+        min-height: calc(100vh - 136px);
+        margin-top: 0px;
+    }
+
 }

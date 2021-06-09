@@ -50,8 +50,6 @@ function MyKdrama(props) {
                 </div>
             </div>
 
-            {watchedDramas.length === 0 && laterDramas.length === 0 && (<p>Add Shows to the list!</p>)}
-
             <div className="arrowTitle">
                 <FontAwesomeIcon icon="angle-double-right" size="2x" className="blueAngleRight"/>
                 <p className="watchTitle">Watch Later</p>
@@ -61,6 +59,13 @@ function MyKdrama(props) {
                     {laterDramas.length !== 0 && laterDramas.map(x=>{return <DramaCard key={x.showID} data={x} dramaID={x.watchlaterID} fromWatched={false} />})}
                 </div>
             </div>
+
+            {watchedDramas.length === 0 && laterDramas.length === 0 && (
+                <div className="emptyMessage">
+                    <p>So far empty :(</p> 
+                    <p>Go look for some K-dramas!</p>
+                </div>
+            )}
         </div>
     );
 }
