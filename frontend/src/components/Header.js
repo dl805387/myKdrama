@@ -120,7 +120,7 @@ function Header() {
                     localStorage.setItem('userID', res.data[0].userID);
                 }
                 history.push('/home');
-            })
+            });
         }
     }
 
@@ -138,7 +138,7 @@ function Header() {
                 if (res.data[0]) {
                     localStorage.setItem('userID', res.data[0].userID);
                 }
-            })
+            });
         }
     }, [user]);
 
@@ -155,7 +155,7 @@ function Header() {
 
     // on myKdrama page, if user isnt logged in then tell user to log in
     // we already set up the code for this, just find out what to say
-
+    // its in a good location too, just add some margin such as margin left
 
     // change the project name on the browser
     // change logo
@@ -168,12 +168,7 @@ function Header() {
 
     // when you make loading page, set the cursor style to wait
 
-    // might be a bug when refresh for first time; not sure
-    // the issue is that the server is asleep
-    // so history.push is delayed
-    // when u refresh, useeffect gets called, then it gets called again when user changed
-    // a fix could be to make a call to the server every 25 mins
-    // prolly will make a server call when user signs in
+    // test "sleep" screen
 
     // remove comments when u finish
     // proofread comments too

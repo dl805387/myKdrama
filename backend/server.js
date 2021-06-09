@@ -166,11 +166,6 @@ app.post('/deleteWatchlater', (req, res) => {
 
 
 
-
-
-
-
-// simple route
 app.get("/", (req, res) => {
 
   res.json({ message: "Welcome to myKdrama!" });
