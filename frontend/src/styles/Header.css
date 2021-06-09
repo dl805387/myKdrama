@@ -19,17 +19,16 @@ li {
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 12px 12px;
     text-decoration: none;
     cursor: pointer;
 }
 
 li p {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
     margin: 0px;
-    margin-top: 6px;
-    padding-bottom: 6px;
+    margin-top: 3px;
 }
   
 li:hover {
@@ -38,4 +37,69 @@ li:hover {
 
 .loginNav {
     float: right !important;
+}
+
+.homeIcon {
+    font-size: 28px;
+}
+
+@media (max-width: 379px) 
+{
+
+    li {
+        padding: 10px 10px;
+    }
+
+    li p {
+        font-size: 18px;
+    }
+
+    .homeIcon {
+        font-size: 24px;
+    }
+
+}
+
+@media (max-width: 329px) 
+{
+
+    li {
+        padding: 8px 8px;
+    }
+
+    li p {
+        font-size: 16px;
+    }
+
+    .homeIcon {
+        font-size: 20px;
+    }
+
+}
+
+@media (max-width: 279px) 
+{
+
+    li {
+        padding: 7px 7px;
+    }
+
+    li p {
+        font-size: 15px;
+        margin-top: 1px;
+    }
+
+    .homeIcon {
+        font-size: 18px;
+    }
+
+}
+
+@media (max-width: 254px) 
+{
+
+    .header {
+        margin-bottom: 80px;
+    }
+
 }

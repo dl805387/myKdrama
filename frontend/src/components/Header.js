@@ -54,6 +54,7 @@ function Header() {
                 if (!isError) {
                     setLoginPopup(false);
                 }
+                getUserID(email);
                 history.push('/home');
                 window.scrollTo(0, 0);
             });
@@ -155,9 +156,6 @@ function Header() {
 
     // on myKdrama page, if user isnt logged in then tell user to log in
     
-    // make navbar mogile friendly
-    // navbar not mobile friendly right now
-
 
 
     // change the project name on the browser
@@ -188,7 +186,7 @@ function Header() {
     return (
         <div className="header">
             <ul>
-                <li onClick={e => {e.preventDefault(); history.push('/home');}}><FontAwesomeIcon icon="home" size="2x" /></li>
+                <li onClick={e => {e.preventDefault(); history.push('/home');}}><FontAwesomeIcon icon="home" size="2x" className="homeIcon" /></li>
 
                 <li onClick={e => {e.preventDefault(); history.push('/search');}}><p>Search</p></li>
 
