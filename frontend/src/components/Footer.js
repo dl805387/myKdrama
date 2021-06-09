@@ -6,9 +6,9 @@ function Footer() {
  
     return (
         <div className="footer">
-            <p className="footerText">Created by Danny Lin</p>
-            <p className="footerText">K-drama data from The Movie Database API</p>
-            <p className="footerText"><a href="https://github.com/dl805387/myKdrama">Github</a></p>
+            <p>Created by Danny Lin</p>
+            <p>K-drama data from The Movie Database API</p>
+            <p><a href="https://github.com/dl805387/myKdrama" target="_blank">Github</a></p>
         </div>
     );
 }

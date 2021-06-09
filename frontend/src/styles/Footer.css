@@ -7,8 +7,16 @@
     width: 100%;
 }
 
-.footerText {
+.footer p {
     margin: 3px;
     margin-left: 10px;
     color: white;
+}
+
+.footer a:link {
+    color: rgb(250, 212, 231);
+}
+
+.footer a:visited {
+    color: rgb(212, 249, 250);
 }
