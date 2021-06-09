@@ -154,9 +154,6 @@ function Header() {
     // there could be one in the header.js, not sure
 
 
-    // change the project name on the browser
-    // change logo
-
     // let user know if api calls all used up
 
     // when you finish with everything, make sure that the server file is updated on pushed
