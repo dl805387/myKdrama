@@ -1,0 +1,25 @@
+.searchPage {
+    margin-top: 80px;
+    min-height: calc(100vh - 156px);
+}
+
+.searchInput {
+    width: 40%;
+    padding: 12px 20px;
+    margin-left: 2%;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    outline: none;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+@media (max-width: 500px) 
+{
+    
+    .searchInput {
+        width: 80%;
+    }
+
+}

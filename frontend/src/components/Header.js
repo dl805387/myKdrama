@@ -152,20 +152,13 @@ function Header() {
     // to do
     // add comments 
 
-    // make the footer
-    // mention API and put in your name
-    // also make the footer at the bottom
-    // ^ such as if the page is too short in search, watched, watch later
-    // min height prolly not a good solution
-    // maybe float bottom?
 
-    // on watched page, if user isnt logged in then tell user to log in
+    // on myKdrama page, if user isnt logged in then tell user to log in
     
     // make navbar mogile friendly
     // navbar not mobile friendly right now
 
 
-    // design watched and watch later page, and make it mobile friendly
 
     // maybe change page button color
 
@@ -228,7 +221,6 @@ function Header() {
                     />
                 )}
 
-                <button onClick={e => {e.preventDefault(); console.log(localStorage.getItem('userID')); console.log(email);}}>see local storage</button>
                 
             </ul>
         </div>

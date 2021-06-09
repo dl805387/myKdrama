@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import TvShow from "./TvShow";
+import '../styles/Search.css'
 const axios = require('axios').default;
 
 function Search() {
@@ -48,8 +49,8 @@ function Search() {
     // this could also save api calls
 
     return (
-        <div>
-            <input placeholder="start typing" onChange={e => {e.preventDefault(); search(e.target.value);}}></input>
+        <div className="searchPage">
+            <input className="searchInput" placeholder="start typing" onChange={e => {e.preventDefault(); search(e.target.value);}}></input>
 
             <div className="tvShows">
                 {filteredShows !== [] && filteredShows.map(x => {return <TvShow key={x.id} result={x} />})}
