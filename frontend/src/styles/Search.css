@@ -16,6 +16,10 @@
     margin-bottom: 20px;
 }
 
+.limitMessage {
+    padding: 10px;
+}
+
 @media (max-width: 1000px) 
 {
     

@@ -49,6 +49,8 @@ function Search() {
             <div className="tvShows">
                 {filteredShows.length !== 0 && filteredShows.map(x => {return <TvShow key={x.id} result={x} />})}
             </div>
+
+            <p className="limitMessage">Try not to click on the search tab too many times because API calls are limited to a certain number per day</p>
         </div>
     );
 }
