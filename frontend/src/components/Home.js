@@ -42,6 +42,7 @@ function Home() {
         window.scrollTo(0, 0);
     }, [currPage]);
 
+    
     return (
         <div>
             <div className="pagesSection forMobile">

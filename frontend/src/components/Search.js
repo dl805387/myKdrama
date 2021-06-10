@@ -42,7 +42,6 @@ function Search() {
     }
 
 
-
     return (
         <div className="searchPage">
             <input className="searchInput" placeholder="start typing" onChange={e => {e.preventDefault(); search(e.target.value);}}></input>

@@ -21,6 +21,7 @@ function Login(props) {
         setLoginPopup
     } = props;
 
+    
     return (
         <div className="loginPopup">
             <FontAwesomeIcon icon={['far', 'times-circle']} size="4x" className="exit" onClick={e => {e.preventDefault(); setLoginPopup(false); clearErrors(); clearInputs();}} />

@@ -30,6 +30,7 @@ function TvShow(props) {
         }
     }
 
+    
     return (
         <div className="tvShow" 
             onClick={() => {

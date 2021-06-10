@@ -143,20 +143,7 @@ function Header() {
 
 
 
-
-    // to do
-
-
     // let user know if api calls all used up
-
-    // when you finish with everything, make sure that the server file is updated on pushed
-
-
-
-    // remove comments when u finish
-    // proofread comments too
-    // make sure none says things from fitness dashboard
-    // proofread server file too
 
     // add text to readme
 
