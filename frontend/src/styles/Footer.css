@@ -13,10 +13,6 @@
     color: white;
 }
 
-.footer a:link {
-    color: rgb(250, 212, 231);
-}
-
-.footer a:visited {
-    color: rgb(212, 249, 250);
+.footer a {
+    color: rgb(194, 247, 206);
 }
