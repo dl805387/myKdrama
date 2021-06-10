@@ -44,7 +44,7 @@ function Home() {
 
     
     return (
-        <div>
+        <div className="homePage">
             <div className="pagesSection forMobile">
                 <button className={isCurrPage(1)} onClick={e => {e.preventDefault(); discover(1);}}>1</button>
                 <button className={isCurrPage(2)} onClick={e => {e.preventDefault(); discover(2);}}>2</button>

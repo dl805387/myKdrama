@@ -1,6 +1,6 @@
 .searchPage {
+    min-height: calc(100vh - 161px);
     margin-top: 80px;
-    min-height: calc(100vh - 156px);
 }
 
 .searchInput {
@@ -60,6 +60,16 @@
     
     .searchInput {
         width: 90%;
+    }
+
+}
+
+@media (max-width: 379px) 
+{
+
+    .searchPage {
+        min-height: calc(100vh - 141px);
+        margin-top: 60px;
     }
 
 }

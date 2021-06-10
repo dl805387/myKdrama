@@ -28,8 +28,25 @@
     background-color: rgb(132, 216, 255);
 }
 
-@media (max-width: 319px)
+.homePage {
+    margin-top: 60px;
+}
+
+@media (max-width: 379px)
 {
+
+    .homePage {
+        margin-top: 50px;
+    }
+
+}
+
+@media (max-width: 329px)
+{
+
+    .homePage {
+        margin-top: 45px;
+    }
 
     .btnLast {
         display: none;
@@ -40,12 +57,25 @@
 @media (max-width: 279px)
 {
 
+    .homePage {
+        margin-top: 40px;
+    }
+
     .btnLast {
         display: none;
     }
 
     .btnEnd {
         display: none;
+    }
+
+}
+
+@media (max-width: 254px) 
+{
+
+    .homePage {
+        margin-top: 70px;
     }
 
 }

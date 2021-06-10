@@ -1,5 +1,5 @@
 .myKdramaPage {
-    min-height: calc(100vh - 156px);
+    min-height: calc(100vh - 161px);
     margin-top: 80px;
 }
 
@@ -70,12 +70,12 @@
     border-radius: 8px; 
 }
 
-@media (max-width: 500px) 
+@media (max-width: 379px) 
 {
 
     .myKdramaPage {
-        min-height: calc(100vh - 136px);
-        margin-top: 0px;
+        min-height: calc(100vh - 141px);
+        margin-top: 60px;
     }
 
 }

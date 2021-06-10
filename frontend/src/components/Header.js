@@ -139,13 +139,6 @@ function Header() {
         }
     }, [user]);
 
-    
-
-
-
-    // let user know if api calls all used up
-
-    // add text to readme
 
     return (
         <div className="header">
