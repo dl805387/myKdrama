@@ -1,8 +1,8 @@
-# myKdrama
+# MyK-Drama
 https://mykdrama.netlify.app
 
 ## About
-This is a full stack web app that allows users to look for K-dramas and keep track of K-dramas that they already watched or K-dramas that they will watch later. This website is a good way for users to get into K-dramas and explore new shows. My motivation with creating this project is that I wanted to create a full stack project with something that I'm interested in and to learn new technologies. I also wanted to learn more about web development, using external APIs, and utilizing a database.
+This is a full stack website that allows users to look for K-dramas and keep track of K-dramas that they already watched or K-dramas that they will watch later. This website is a good way for users to get into K-dramas and explore new shows. My motivation with creating this project is that I wanted to create a full stack project with something that I'm interested in and to learn new technologies. I also wanted to learn more about web development, using external APIs, and utilizing a database.
 
 
 ## Features
@@ -10,7 +10,7 @@ This is a full stack web app that allows users to look for K-dramas and keep tra
 * Users can search for over 1,000 K-dramas
 * K-dramas can be added to watched or watch later categories, each associated with the user's account
 * Each K-drama can be viewed to obtain more detailed information such as the synopsis and also a list of recommended K-dramas
-* Implemented user login authentification with firebase
+* Implemented user login authentication with firebase
 * User account and watched/watch later K-dramas are stored in a MySQL database
 
 

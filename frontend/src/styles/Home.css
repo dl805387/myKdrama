@@ -12,6 +12,10 @@
 }
 
 .pageBtn {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
     width: 30px;
     font-size: 22px;
     font-weight: bold;

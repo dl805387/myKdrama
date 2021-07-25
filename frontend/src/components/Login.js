@@ -33,7 +33,7 @@ function Login(props) {
                     <label className="loginLabel">Username</label>
                     <div className="loginPassword">
                         <FontAwesomeIcon icon="user" size="2x" className="loginIcon" />
-                        <input className="loginInput" type="text" placeholder="pseudo email address" autoFocus required value={email} onChange={(e) => {setEmail(e.target.value)}} />
+                        <input className="loginInput" type="text" placeholder="email address" autoFocus required value={email} onChange={(e) => {setEmail(e.target.value)}} />
                        
                     </div>
                     <p className="error">{emailError}</p>
