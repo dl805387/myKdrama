@@ -54,21 +54,3 @@ MySQL database is managed with ClearDB through Heroku
 K-drama data from The Movie Database API\
 The Movie database API contains many movies and tv shows but this project only use the API for K-dramas\
 https://developers.themoviedb.org/3/getting-started/introduction
-
-
-## Setup
-To run this project locally, clone the project and install it by using npm install on the terminal\
-$ npm install\
-\
-The parent folder is myKdrama\
-Contains two sub-folders: frontend and backend\
-Go to the backend folder to run server\
-$ cd backend\
-$ npm start\
-\
-Go to the frontend folder to run the website on the browser\
-Make sure you are in the parent folder when you go to the frontend folder\
-$ cd frontend\
-$ npm start\
-\
-Enjoy!
