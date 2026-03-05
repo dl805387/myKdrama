@@ -1,5 +1,6 @@
 # MyK-Drama
 https://mykdrama.netlify.app
+Website currently not active due to Heroku removing free tier hosting.
 
 ## About
 This is a full stack website that allows users to look for K-dramas and keep track of K-dramas that they already watched or K-dramas that they will watch later. This website is a good way for users to get into K-dramas and explore new shows. My motivation with creating this project is that I wanted to create a full stack project with something that I'm interested in and to learn new technologies. I also wanted to learn more about web development, using external APIs, and utilizing a database.
